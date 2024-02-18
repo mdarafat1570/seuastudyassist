@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seustudyassist/base/AppColour.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 enum SampleItem { itemOne, itemTwo, itemThree }
@@ -101,28 +103,25 @@ Widget customersRow(BuildContext context) {
                 ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(right: 0),
-              child: PopupMenuButton<SampleItem>(
-                color: Colors.white,
-                surfaceTintColor: Colors.transparent,
-                iconSize: 16,
-                iconColor: const Color.fromARGB(255, 171, 171, 171),
-                initialValue: null,
-                onSelected: (SampleItem item) {
-                  if (item == SampleItem.itemOne) {
-                  } else if (item == SampleItem.itemTwo) {
-                  } else if (item == SampleItem.itemThree) {}
-                },
-                itemBuilder: (BuildContext context) =>
-                    <PopupMenuEntry<SampleItem>>[
-                  const PopupMenuItem<SampleItem>(
-                    value: SampleItem.itemOne,
-                    child: Text('Details'),
-                  ),
-                ],
-              ),
-            ),
+            const Row(
+              children: [
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: (null),
+                      child: Icon(
+                        FontAwesomeIcons.circleInfo,
+                        size: 16,
+                        color: AppColor.primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 30,
+                )
+              ],
+            )
           ],
         ),
         const Divider(

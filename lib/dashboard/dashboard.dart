@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/base/utils.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
+import 'package:seustudyassist/model/course_list.dart';
 import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -13,6 +14,27 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   late Timer _timer;
   late ScrollController _scrollController;
+
+  AppBar _buildAppBar() {
+    return AppBar(
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      elevation: 0,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text("Hey Mr Arafat! "),
+          Container(
+            height: 35,
+            width: 35,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset('assets/arafatnew.jpg'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   void initState() {
@@ -189,7 +211,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           "Club Activities",
                           style: TextStyle(
                             color: black,
-                            fontSize: 17,
+                            fontSize: 15,
                             letterSpacing: 1,
                             fontWeight: FontWeight.normal,
                           ),
@@ -273,16 +295,39 @@ class _DashboardPageState extends State<DashboardPage> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    const Text(
-                      "Curriculum Details",
-                      style: TextStyle(
-                        color: black,
-                        fontSize: 20,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.normal,
-                      ),
+
+                    Row(
+                      children: [
+                        const Text(
+                          "Curriculum Details",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CoursePage()),
+                            );
+                          },
+                          child: const Text(
+                            "View All",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 16.0),
                   ],
                 ),
               ),
@@ -291,31 +336,8 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
       ),
       bottomNavigationBar: AppBottomNavigationBar.appBottomNavigation(
-        (index) {
-          // Handle index change
-        },
-        0, // Initial selected index
-      ),
-    );
-  }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      elevation: 0,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text("Hey Mr Arafat! "),
-          Container(
-            height: 35,
-            width: 35,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset('assets/arafatnew.jpg'),
-            ),
-          ),
-        ],
+        (index) {},
+        0,
       ),
     );
   }
