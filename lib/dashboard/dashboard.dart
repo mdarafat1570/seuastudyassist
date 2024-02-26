@@ -1,10 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:seustudyassist/base/AppColour.dart';
+import 'package:seustudyassist/commonWidget/TextUtil.dart';
 import 'dart:async';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/base/utils.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
-import 'package:seustudyassist/model/course_list.dart';
+import 'package:seustudyassist/model/faculties_list.dart';
 import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
+
+List<String> semesterList = [
+  "First Semester",
+  "Second Semester",
+  "Third Semester",
+  "Fourth Semester",
+  "Fifth Semester",
+  "Sixth Semester",
+  "Seventh Semester",
+  "Eighth Semester",
+  "Ninth Semester",
+  "Tenth Semester",
+  "Eleventh Semester",
+  "Twelfth Semester"
+];
+
+int selectedIndex = 0;
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -143,67 +162,22 @@ class _DashboardPageState extends State<DashboardPage> {
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       controller: _scrollController,
-                      child: const Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/cse/Shahriar-Manzoor.jpg",
+                      child: Row(
+                        children: List.generate(
+                          ImageUrls.urls.length,
+                          (index) => Padding(
+                            padding: const EdgeInsets.only(right: 16.0),
+                            child: CircleAvatar(
+                              radius: 33,
+                              backgroundImage: NetworkImage(
+                                ImageUrls.urls[index],
+                              ),
                             ),
                           ),
-                          SizedBox(width: 16.0),
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/cse/SS.png",
-                            ),
-                          ),
-                          SizedBox(width: 16.0),
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/cse/Ashiqur_Rahman.jpg",
-                            ),
-                          ),
-                          SizedBox(width: 16.0),
-                          // Second row of images
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/cse/Roksana_Akter.jpg",
-                            ),
-                          ),
-                          SizedBox(width: 16.0),
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/cse/AHQ.jpg",
-                            ),
-                          ),
-                          SizedBox(width: 16.0),
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/eee/Shifat-Ahmed.jpg",
-                            ),
-                          ),
-                          SizedBox(width: 16.0),
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/cse/BD.png",
-                            ),
-                          ),
-                          SizedBox(width: 16.0),
-                          CircleAvatar(
-                            radius: 33,
-                            backgroundImage: NetworkImage(
-                              "https://www.seu.edu.bd/dept/dept_images/cse/sinthiaSobnom.jpg",
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
+
                     const SizedBox(height: 20.0),
                     const Row(
                       children: [
@@ -294,7 +268,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 15),
 
                     Row(
                       children: [
@@ -327,6 +301,43 @@ class _DashboardPageState extends State<DashboardPage> {
                           ),
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      height: 35,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: semesterList.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: Container(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              margin: const EdgeInsets.only(right: 20),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white54),
+                                  borderRadius: BorderRadius.circular(120),
+                                  color: selectedIndex == index
+                                      ? AppColor.primaryColor
+                                      : AppColor.accentColor),
+                              alignment: Alignment.center,
+                              child: TextUtil(
+                                text: semesterList[index],
+                                weight: true,
+                                color: selectedIndex == index
+                                    ? Colors.white
+                                    : const Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

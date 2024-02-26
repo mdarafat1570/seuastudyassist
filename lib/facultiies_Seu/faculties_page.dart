@@ -68,9 +68,24 @@ class _FacultiesPageState extends State<FacultiesPage> {
           SizedBox(height: 15),
           Expanded(
             child: ListView.builder(
-              itemCount: faculties.length, // Use the faculties list here
+              itemCount: FacultiesLIst().length,
               itemBuilder: (context, index) {
-                return customersRow(context);
+                final fachFacultiesLIst = FacultiesLIst()[index];
+                return FacultyRow(
+                  fachFacultiesLIst['name'],
+                  fachFacultiesLIst['Position'],
+                  fachFacultiesLIst['phoneNumber'],
+                  fachFacultiesLIst['imageUrl'],
+                  fachFacultiesLIst['email'],
+
+                  // onDetailsClick: () {
+                  //   // Navigator.push(
+                  //   //   context,
+                  //   //   MaterialPageRoute(
+                  //   //       builder: (context) => PosOrderDetails(ordernumber: '',)),
+                  //   // );
+                  // },
+                );
               },
             ),
           ),

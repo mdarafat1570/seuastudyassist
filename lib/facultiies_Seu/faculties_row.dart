@@ -2,24 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seustudyassist/base/AppColour.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 enum SampleItem { itemOne, itemTwo, itemThree }
 
-class Faculty {
-  final String name;
-  final String imageAsset;
-  final String phoneNumber;
-
-  Faculty({
-    required this.name,
-    required this.imageAsset,
-    required this.phoneNumber,
-  });
-}
-
-Widget customersRow(BuildContext context) {
-  return VxBox(
+Widget FacultyRow(
+  String name,
+  String position,
+  String phoneNumber,
+  String imageUrl,
+  String email,
+) {
+  return InkWell(
     child: Column(
       children: [
         Row(
@@ -30,14 +24,14 @@ Widget customersRow(BuildContext context) {
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: const Stack(
+              child: Stack(
                 children: [
                   SizedBox(
                     width: 60.0,
                     height: 60.0,
                     child: Image(
                       image: NetworkImage(
-                        "https://www.seu.edu.bd/dept/dept_images/cse/Shahriar-Manzoor.jpg",
+                        imageUrl,
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -53,7 +47,7 @@ Widget customersRow(BuildContext context) {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Mr. Shahriar Manzoor",
+                    name,
                     style: GoogleFonts.openSans(
                       letterSpacing: .5,
                       fontWeight: FontWeight.bold,
@@ -67,16 +61,21 @@ Widget customersRow(BuildContext context) {
                   ),
                   Row(
                     children: [
-                      const Icon(
-                        Icons.phone,
-                        size: 16,
-                        color: Color.fromARGB(255, 47, 237, 18),
+                      GestureDetector(
+                        onTap: () {
+                          launch('tel:$phoneNumber');
+                        },
+                        child: const Icon(
+                          Icons.phone,
+                          size: 16,
+                          color: Color.fromARGB(255, 40, 128, 27),
+                        ),
                       ),
                       const SizedBox(
                         width: 2,
                       ),
                       Text(
-                        "2226603610-7",
+                        phoneNumber,
                         style: GoogleFonts.openSans(
                           letterSpacing: .5,
                           fontSize: 12,
@@ -88,14 +87,53 @@ Widget customersRow(BuildContext context) {
                   const SizedBox(
                     height: 3,
                   ),
-                  Container(),
-                  Text(
-                    "Position: Associate Professor & Chairman",
-                    style: GoogleFonts.openSans(
-                      letterSpacing: .5,
-                      fontSize: 12,
-                      color: const Color.fromARGB(255, 78, 100, 144),
-                    ),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          launch('mailto:$email');
+                        },
+                        child: const Icon(
+                          Icons.email_outlined,
+                          size: 16,
+                          color: Color.fromARGB(255, 40, 128, 27),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        email,
+                        style: GoogleFonts.openSans(
+                          letterSpacing: .5,
+                          fontSize: 12,
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Position: ",
+                        style: GoogleFonts.openSans(
+                          letterSpacing: .5,
+                          fontSize: 12,
+                          color: const Color.fromARGB(255, 78, 100, 144),
+                        ),
+                      ),
+                      Text(
+                        position,
+                        style: GoogleFonts.openSans(
+                          letterSpacing: .5,
+                          fontSize: 12,
+                          color: const Color.fromARGB(255, 78, 100, 144),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 2,
@@ -129,5 +167,5 @@ Widget customersRow(BuildContext context) {
         ),
       ],
     ),
-  ).margin(const EdgeInsets.all(10)).make();
+  );
 }

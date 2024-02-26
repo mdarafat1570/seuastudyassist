@@ -100,6 +100,29 @@ Widget courserow(String courseCode, String courseTitle, String credits,
               children: [
                 Column(
                   children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: onDetailsClick,
+                          child: const Icon(
+                            FontAwesomeIcons.arrowDownWideShort,
+                            size: 16,
+                            color: AppColor.primaryColor,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "1st",
+                          style: TextStyle(color: Colors.green, fontSize: 15),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     (courseType)
                         .text
                         .size(14)

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:seustudyassist/base/AppColour.dart';
-import 'package:seustudyassist/commonWidget/custom_Text.dart';
+
 import 'package:seustudyassist/courseOnList/course_row_item.dart';
 import 'package:seustudyassist/model/course_list.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class CoursePage extends StatefulWidget {
   const CoursePage({Key? key}) : super(key: key);
@@ -76,13 +72,13 @@ class _CoursePageState extends State<CoursePage> {
             child: ListView.builder(
               itemCount: CourseLIst().length,
               itemBuilder: (context, index) {
-                final fachorder = CourseLIst()[index];
+                final fachcourseList = CourseLIst()[index];
                 return courserow(
-                  fachorder['courseCode'],
-                  fachorder['courseTitle'],
-                  fachorder['credits'],
-                  fachorder['courseType'],
-                  fachorder['CoursePrototype'],
+                  fachcourseList['courseCode'],
+                  fachcourseList['courseTitle'],
+                  fachcourseList['credits'],
+                  fachcourseList['courseType'],
+                  fachcourseList['CoursePrototype'],
                   onDetailsClick: () {
                     // Navigator.push(
                     //   context,

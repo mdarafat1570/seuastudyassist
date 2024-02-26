@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppBottomNavigationBar {
   static NavigationBar appBottomNavigation(
@@ -11,15 +12,19 @@ class AppBottomNavigationBar {
       backgroundColor: Colors.white,
       destinations: const [
         NavigationDestination(
-            icon: Icon(Icons.home_outlined, color: Colors.grey), label: 'Home'),
+            icon: FaIcon(FontAwesomeIcons.home, color: Colors.grey, size: 18),
+            label: 'Home'),
         NavigationDestination(
-            icon: Icon(Icons.person_outline, color: Colors.grey),
+            icon: FaIcon(FontAwesomeIcons.bookOpenReader,
+                color: Colors.grey, size: 18),
             label: 'course'),
         NavigationDestination(
-            icon: Icon(Icons.chat_bubble_outline_outlined, color: Colors.grey),
+            icon:
+                FaIcon(FontAwesomeIcons.barChart, color: Colors.grey, size: 18),
             label: 'Chat'),
         NavigationDestination(
-            icon: Icon(Icons.settings, color: Colors.grey), label: 'Settings'),
+            icon: FaIcon(FontAwesomeIcons.cog, color: Colors.grey, size: 18),
+            label: 'Settings'),
       ],
     );
   }

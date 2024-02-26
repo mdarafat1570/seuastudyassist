@@ -1,59 +1,27 @@
 import 'package:seustudyassist/facultiies_Seu/faculties_row.dart';
 
-List<Faculty> faculties = [
-  Faculty(
-    name: 'Faculty of Engineering',
-    imageAsset: 'assets/engineering.jpg',
-    phoneNumber: '123-456-7890',
-  ),
-  Faculty(
-    name: 'Faculty of Science',
-    imageAsset: 'assets/science.jpg',
-    phoneNumber: '987-654-3210',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-  Faculty(
-    name: 'Faculty of Arts',
-    imageAsset: 'assets/arts.jpg',
-    phoneNumber: '555-555-5555',
-  ),
-];
+List<Map<String, dynamic>> FacultiesLIst() {
+  return [
+    {
+      'name': 'MD Arafat Khan',
+      'Position': 'Introduction to Accounting',
+      'phoneNumber': '533434533',
+      'imageUrl':
+          'https://www.seu.edu.bd/dept/dept_images/cse/Shahriar-Manzoor.jpg',
+      'email': 'Khan@gmail.com'
+    },
+  ];
+}
+
+class ImageUrls {
+  static List<String> urls = [
+    "https://www.seu.edu.bd/dept/dept_images/cse/Shahriar-Manzoor.jpg",
+    "https://www.seu.edu.bd/dept/dept_images/cse/SS.png",
+    "https://www.seu.edu.bd/dept/dept_images/cse/Ashiqur_Rahman.jpg",
+    "https://www.seu.edu.bd/dept/dept_images/cse/Roksana_Akter.jpg",
+    "https://www.seu.edu.bd/dept/dept_images/cse/AHQ.jpg",
+    "https://www.seu.edu.bd/dept/dept_images/eee/Shifat-Ahmed.jpg",
+    "https://www.seu.edu.bd/dept/dept_images/cse/BD.png",
+    "https://www.seu.edu.bd/dept/dept_images/cse/sinthiaSobnom.jpg",
+  ];
+}
