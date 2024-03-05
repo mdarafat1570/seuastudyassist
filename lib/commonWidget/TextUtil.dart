@@ -19,6 +19,7 @@ class TextUtil extends StatelessWidget {
     );
   }
 }
+
 Widget customTextUI(String name, {color = Colors.white}) {
   return Text(name,
       style:

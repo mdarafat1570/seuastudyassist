@@ -19,26 +19,25 @@ Widget featuredWidget(
   );
 }
 
-
-  List<FeaturedCouseModel> fetures = [
-    FeaturedCouseModel(
-        courseTitle: "web Design",
-        imagePath:
-            "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
-        numberOfCourse: "20"),
-    FeaturedCouseModel(
-        courseTitle: "game",
-        imagePath:
-            "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
-        numberOfCourse: "23"),
-    FeaturedCouseModel(
-        courseTitle: "android",
-        imagePath:
-            "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
-        numberOfCourse: "50"),
-    FeaturedCouseModel(
-        courseTitle: "Design",
-        imagePath:
-            "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
-        numberOfCourse: "51"),
-  ];
+List<FeaturedCouseModel> fetures = [
+  FeaturedCouseModel(
+      courseTitle: "web Design",
+      imagePath:
+          "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
+      numberOfCourse: "20"),
+  FeaturedCouseModel(
+      courseTitle: "game",
+      imagePath:
+          "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
+      numberOfCourse: "23"),
+  FeaturedCouseModel(
+      courseTitle: "android",
+      imagePath:
+          "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
+      numberOfCourse: "50"),
+  FeaturedCouseModel(
+      courseTitle: "Design",
+      imagePath:
+          "https://th.bing.com/th/id/OIP.PB3ZpIvrp1R0F_tUb7pbjQHaEK?rs=1&pid=ImgDetMain",
+      numberOfCourse: "51"),
+];

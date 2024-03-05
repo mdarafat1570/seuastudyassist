@@ -26,6 +26,3 @@ Widget customTextBold(String text,
     ),
   );
 }
-
-
-
