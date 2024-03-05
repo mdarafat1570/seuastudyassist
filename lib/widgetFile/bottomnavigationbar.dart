@@ -5,7 +5,7 @@ class AppBottomNavigationBar {
   static NavigationBar appBottomNavigation(
       void Function(int index) onIndexChanged, int selectedIndex) {
     return NavigationBar(
-      height: 80,
+      height: 70,
       elevation: 0,
       selectedIndex: selectedIndex,
       onDestinationSelected: onIndexChanged,

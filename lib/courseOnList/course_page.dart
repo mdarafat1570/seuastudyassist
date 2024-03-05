@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:seustudyassist/courseOnList/course_row_item.dart';
+import 'package:seustudyassist/courseOnList/detail_page.dart';
 import 'package:seustudyassist/model/course_list.dart';
 
 class CoursePage extends StatefulWidget {
@@ -80,11 +81,10 @@ class _CoursePageState extends State<CoursePage> {
                   fachcourseList['courseType'],
                   fachcourseList['CoursePrototype'],
                   onDetailsClick: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => PosOrderDetails(ordernumber: '',)),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailsPage()),
+                    );
                   },
                 );
               },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seustudyassist/base/AppColour.dart';
+import 'package:seustudyassist/commonWidget/custom_Text.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 enum SampleItem { itemOne, itemTwo, itemThree }
@@ -19,7 +20,6 @@ Widget courserow(String courseCode, String courseTitle, String credits,
           children: [
             Expanded(
               child: Container(
-                margin: const EdgeInsets.only(left: 10),
                 child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -103,21 +103,19 @@ Widget courserow(String courseCode, String courseTitle, String credits,
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        InkWell(
-                          onTap: onDetailsClick,
-                          child: const Icon(
-                            FontAwesomeIcons.arrowDownWideShort,
-                            size: 16,
-                            color: AppColor.primaryColor,
-                          ),
-                        ),
                         const SizedBox(
                           width: 10,
                         ),
-                        const Text(
-                          "1st",
-                          style: TextStyle(color: Colors.green, fontSize: 15),
-                        ),
+                        customText("1st Semester",
+                                size: 12, color: Colors.white)
+                            .box
+                            .color(("1st Semester" == "1st Semester")
+                                ? Colors.green
+                                : Colors.red)
+                            .roundedLg
+                            .padding(const EdgeInsets.symmetric(
+                                horizontal: 7, vertical: 1))
+                            .make(),
                       ],
                     ),
                     const SizedBox(
