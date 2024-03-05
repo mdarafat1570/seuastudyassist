@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:seustudyassist/dashboard/dashboard.dart';
+import 'package:seustudyassist/login_page/page_swipe/onboarding_screen.dart';
 
-void main() {
+void main()  {
+  
   runApp(SeuStudyAssist());
 }
 
@@ -13,7 +15,7 @@ class SeuStudyAssist extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DashboardPage(),
+      home: OnBoardingScren(),
       debugShowCheckedModeBanner: false,
     );
   }

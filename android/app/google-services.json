@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "515673596900",
+    "project_id": "seustudyassits",
+    "storage_bucket": "seustudyassits.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515673596900:android:b3a8e28e70665b799c5df1",
+        "android_client_info": {
+          "package_name": "com.seustudyassist.seustudyassists"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK2t7L8Ecx4UGNbKu4pyNNgVakW9fkFl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
