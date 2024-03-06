@@ -20,7 +20,7 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 
-  HomePage({super.key, required this.name});
+  HomePage(String s, {super.key, required this.name});
 }
 
 class _HomePageState extends State<HomePage> {

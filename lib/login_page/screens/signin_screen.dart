@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seustudyassist/dashboard/dashboard.dart';
+import 'package:seustudyassist/dashboard/home_page.dart';
 import 'package:seustudyassist/login_page/screens/signup_screen.dart';
 import 'package:seustudyassist/login_page/widgets/custom_scaffold.dart';
 // import 'package:login_signup/screens/signup_screen.dart';
@@ -163,7 +164,10 @@ class _SignInScreenState extends State<SignInScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (e) => DashboardPage()));
+                                      builder: (e) => HomePage(
+                                            "Hello There",
+                                            name: 'Fayaz',
+                                          )));
                             } else if (!rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
