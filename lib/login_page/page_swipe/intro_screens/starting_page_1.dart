@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class IntroPage1 extends StatelessWidget {
   const IntroPage1({super.key});
@@ -6,47 +8,24 @@ class IntroPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      backgroundColor: Colors.yellow.shade700,
+      body: Column(
         children: [
-          Image.asset(
-            'assets/pic1.jpg',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
+          SizedBox(
+            height: 70,
           ),
-          Image.asset('assets/3.png'),
-          SafeArea(
-            child: Column(
-              children: [
-                Flexible(
-                    flex: 8,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 40.0,
-                        vertical: 10,
-                      ),
-                      child: Center(
-                        child: RichText(
-                          textAlign: TextAlign.center,
-                          text: const TextSpan(children: [
-                            TextSpan(
-                                text: 'Welcome Back!\n',
-                                style: TextStyle(
-                                  fontSize: 45.0,
-                                  fontWeight: FontWeight.w600,
-                                )),
-                            TextSpan(
-                                text: '\n Plese Enter Your Details For Login',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ))
-                          ]),
-                        ),
-                      ),
-                    )),
-              ],
+          Container(
+            color: Colors.yellow.shade700,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Lottie.asset(
+                'assets/Animation1.json',
+                width: 300,
+                height: 300,
+                fit: BoxFit.fill,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -332,10 +332,10 @@ class _HomePageState extends State<HomePage> {
             ))
           ],
         ),
-        bottomNavigationBar: AppBottomNavigationBar.appBottomNavigation(
-          (index) {},
-          0,
-        ),
+        // bottomNavigationBar: AppBottomNavigationBar.appBottomNavigation(
+        //   (index) {},
+        //   1,
+        // ),
       ),
     );
   }

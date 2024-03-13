@@ -346,10 +346,10 @@ class _DashboardPageState extends State<DashboardPage> {
           ],
         ),
       ),
-      bottomNavigationBar: AppBottomNavigationBar.appBottomNavigation(
-        (index) {},
-        0,
-      ),
+      // bottomNavigationBar: AppBottomNavigationBar.appBottomNavigation(
+      //   (index) {},
+      //   0,
+      // ),
     );
   }
 }

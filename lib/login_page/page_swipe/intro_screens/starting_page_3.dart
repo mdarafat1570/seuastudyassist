@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:seustudyassist/dashboard/home_page.dart';
 import 'package:seustudyassist/login_page/screens/welcome_screen.dart';
 import 'package:seustudyassist/login_page/widgets/welcome_button.dart';
+import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
 
 class IntroPage3 extends StatelessWidget {
   const IntroPage3({super.key});
@@ -54,7 +56,7 @@ class IntroPage3 extends StatelessWidget {
                         Expanded(
                           child: welcomeButon(
                             buttonText: 'Start',
-                            onTap: WelcomeScreen(),
+                            onTap: Navigation(),
                             color: Colors.transparent,
                             textColor: Colors.white,
                           ),
