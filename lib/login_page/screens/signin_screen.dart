@@ -165,8 +165,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (e) => HomePage(
-                                            "Hello There",
-                                            name: 'Fayaz',
+                                            
                                           )));
                             } else if (!rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
