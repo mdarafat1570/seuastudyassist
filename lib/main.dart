@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:seustudyassist/dashboard/home_page.dart';
 import 'package:seustudyassist/login_page/page_swipe/onboarding_screen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class SeuStudyAssist extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OnBoardingScren(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
