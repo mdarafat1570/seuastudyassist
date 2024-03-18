@@ -164,9 +164,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (e) => HomePage(
-                                            
-                                          )));
+                                      builder: (e) => HomePage()));
                             } else if (!rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(

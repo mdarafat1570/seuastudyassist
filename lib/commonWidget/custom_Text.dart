@@ -26,3 +26,41 @@ Widget customTextBold(String text,
     ),
   );
 }
+
+Widget commonTextfield(int numberOfLine, TextEditingController controller,
+    {double? width, bool isTextFieldEnable = true}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      SizedBox(
+        height: null,
+        width: (width == null) ? null : width,
+        child: TextField(
+          maxLines: numberOfLine,
+          controller: controller,
+          enabled: isTextFieldEnable,
+          decoration: InputDecoration(
+            isCollapsed: true,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: const BorderSide(
+                  width: 1, color: Color.fromARGB(255, 224, 179, 13)),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: const BorderSide(
+                  width: 1, color: Color.fromARGB(255, 213, 213, 213)),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: const BorderSide(
+                  width: 1, color: Color.fromARGB(255, 158, 210, 253)),
+            ),
+          ),
+        ),
+      ),
+    ],
+  );
+}
