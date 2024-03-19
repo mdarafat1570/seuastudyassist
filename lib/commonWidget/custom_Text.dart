@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seustudyassist/base/AppColour.dart';
 
@@ -39,14 +40,18 @@ Widget commonTextfield(int numberOfLine, TextEditingController controller,
           maxLines: numberOfLine,
           controller: controller,
           enabled: isTextFieldEnable,
+          keyboardType: TextInputType.number,
+          inputFormatters: [
+            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+          ],
           decoration: InputDecoration(
             isCollapsed: true,
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(
-                  width: 1, color: Color.fromARGB(255, 224, 179, 13)),
+              borderSide:
+                  const BorderSide(width: 1, color: AppColor.primaryColor),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),

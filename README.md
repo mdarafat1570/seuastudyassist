@@ -1,6 +1,9 @@
 # seustudyassist
 
-Collect virtual Demo question papers per subject. Easily see what subjects you need to take in any semester from our application and give suggestions. CGP calculator. Social Connection & Universities that have clubs can join all clubs from our application.
+Collect virtual Demo question papers per subject. 
+Easily see what subjects you need to take in any semester from our application and give suggestions. 
+CGP calculator. 
+Social Connection & Universities that have clubs can join all clubs from our application.
 
 ## Getting Started
 

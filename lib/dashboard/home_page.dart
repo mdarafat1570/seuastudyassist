@@ -336,38 +336,11 @@ class _HomePageState extends State<HomePage> {
                               slideNavigationPush(UMSPage(), context);
                             },
                             child: buildCard('assets/LgoUMS.png', 'UMS\n',
-                                Color.fromARGB(255, 255, 251, 17))),
+                                AppColor.primaryColor)),
                         GestureDetector(
-                            onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Row(
-                                      children: [
-                                        Icon(Icons.error, color: Colors.red),
-                                        SizedBox(width: 8),
-                                        Text('Sorry'),
-                                      ],
-                                    ),
-                                    content: Text(
-                                        'This model is still under development'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            child: buildCard(
-                                'assets/picone.png',
-                                'CGPA \n Calculator',
-                                Color.fromARGB(255, 39, 55, 105))),
+                            onTap: () {},
+                            child: buildCard('assets/picone.png',
+                                'CGPA \n Calculator', AppColor.primaryColor)),
                         GestureDetector(
                             onTap: () {
                               showDialog(
@@ -445,7 +418,7 @@ class _HomePageState extends State<HomePage> {
                             child: buildCard(
                                 'assets/Tuitionfees.png',
                                 'Tuition Fee\nCalculator',
-                                const Color.fromARGB(255, 255, 255, 255))),
+                                AppColor.primaryColor)),
                         GestureDetector(
                             onTap: () {
                               showDialog(
