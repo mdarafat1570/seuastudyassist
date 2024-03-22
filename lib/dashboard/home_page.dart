@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
           color: color,
           shape: RoundedRectangleBorder(
             borderRadius:
-                BorderRadius.circular(10.0), // Set the corner radius as needed
+                BorderRadius.circular(10.0),
           ),
           child: Container(
             width: 42,
