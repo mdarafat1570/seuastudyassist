@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:seustudyassist/widgetFile/bottomnavigatio nbar.dart';
 import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
 
 void main() {

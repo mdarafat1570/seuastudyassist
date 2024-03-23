@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:seustudyassist/aiPage/pages/ai_home_page.dart';
+import 'package:seustudyassist/aipage2/Chatbot.dart';
 import 'package:seustudyassist/settingpage/Settingpage.dart';
 import 'package:seustudyassist/calculatorPage/calculator.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/dashboard/home_page.dart';
+import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -17,7 +20,8 @@ class _NavigationState extends State<Navigation> {
   List<Widget> widgetList = [
     HomePage(),
     CoursePage(),
-    calculatorPage(),
+    CalculatorScreen(),
+    Chatbot(),
     settingPage(),
   ];
 
@@ -50,8 +54,12 @@ class _NavigationState extends State<Navigation> {
                   color: Colors.grey, size: 18),
               label: 'Calculator'),
           BottomNavigationBarItem(
+              icon:
+                  FaIcon(FontAwesomeIcons.robot, color: Colors.grey, size: 18),
+              label: 'Ai'),
+          BottomNavigationBarItem(
               icon: FaIcon(FontAwesomeIcons.gear, color: Colors.grey, size: 18),
-              label: 'Settings'),
+              label: 'Settings')
         ],
       ),
     );
