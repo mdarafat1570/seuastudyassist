@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
+import 'package:seustudyassist/aipage2/Chatbot.dart';
 import 'package:seustudyassist/base/AppColour.dart';
 import 'package:seustudyassist/commonWidget/TextUtil.dart';
 import 'package:seustudyassist/commonWidget/course_widget.dart';
@@ -119,8 +120,7 @@ class _HomePageState extends State<HomePage> {
         Card(
           color: color,
           shape: RoundedRectangleBorder(
-            borderRadius:
-                BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(10.0),
           ),
           child: Container(
             width: 42,
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(   
+                        SizedBox(
                           height: 50,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -421,35 +421,12 @@ class _HomePageState extends State<HomePage> {
                                 AppColor.primaryColor)),
                         GestureDetector(
                             onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Row(
-                                      children: [
-                                        Icon(Icons.error, color: Colors.red),
-                                        SizedBox(width: 8),
-                                        Text('Sorry'),
-                                      ],
-                                    ),
-                                    content: Text(
-                                        'This model is still under development'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                              slideNavigationPush(Chatbot(), context);
                             },
                             child: buildCard(
-                                'assets/picone.png',
-                                'CGPA \n Calculator',
-                                Color.fromARGB(255, 39, 55, 105))),
+                                'assets/logoAi.png',
+                                'SEU \n Study Assist Ai',
+                                Color.fromARGB(255, 119, 128, 180))),
                         GestureDetector(
                             onTap: () {
                               showDialog(
