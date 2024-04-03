@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:seustudyassist/CGP/cgpa_page.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
 import 'package:seustudyassist/aipage2/Chatbot.dart';
 import 'package:seustudyassist/base/AppColour.dart';
@@ -338,35 +339,16 @@ class _HomePageState extends State<HomePage> {
                             child: buildCard('assets/LgoUMS.png', 'UMS\n',
                                 AppColor.primaryColor)),
                         GestureDetector(
-                            onTap: () {},
-                            child: buildCard('assets/picone.png',
+                            onTap: () {
+                              slideNavigationPush(
+                                  CGPACalculatorPage(), context);
+                            },
+                            child: buildCard('assets/Cgp.png',
                                 'CGPA \n Calculator', AppColor.primaryColor)),
                         GestureDetector(
                             onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Row(
-                                      children: [
-                                        Icon(Icons.error, color: Colors.red),
-                                        SizedBox(width: 8),
-                                        Text('Sorry'),
-                                      ],
-                                    ),
-                                    content: Text(
-                                        'This model is still under development'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                              slideNavigationPush(
+                                  CGPACalculatorPage(), context);
                             },
                             child: buildCard(
                                 'assets/picone.png',

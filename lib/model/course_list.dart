@@ -6,6 +6,7 @@ List<Map<String, dynamic>> CourseLIst() {
       'credits': '3',
       'courseType': 'General',
       'CoursePrototype': 'Theory',
+      'Semester': '1st Semester'
     },
     {
       'courseCode': 'CSE141',
@@ -13,6 +14,7 @@ List<Map<String, dynamic>> CourseLIst() {
       'credits': '3',
       'courseType': 'Core',
       'CoursePrototype': 'Theory',
+      'Semester': '2rd Semester'
     },
     {
       'courseCode': 'CSE161',
@@ -20,6 +22,7 @@ List<Map<String, dynamic>> CourseLIst() {
       'credits': '3',
       'courseType': 'Core',
       'CoursePrototype': 'Theory',
+      'Semester': '1st Semester'
     },
     {
       'courseCode': 'CSE162',
@@ -27,6 +30,7 @@ List<Map<String, dynamic>> CourseLIst() {
       'credits': '1',
       'courseType': 'Core',
       'CoursePrototype': 'Practical',
+      'Semester': '1st Semester'
     },
     {
       'courseCode': 'CSE181',
@@ -34,6 +38,7 @@ List<Map<String, dynamic>> CourseLIst() {
       'credits': '3',
       'courseType': 'Core',
       'CoursePrototype': 'Theory',
+      'Semester': '1st Semester'
     },
     {
       'courseCode': 'CSE241',
@@ -41,6 +46,7 @@ List<Map<String, dynamic>> CourseLIst() {
       'credits': '3',
       'courseType': 'Core',
       'CoursePrototype': 'Theory',
+      'Semester': '1st Semester'
     },
     {
       'courseCode': 'CSE242',
@@ -48,6 +54,7 @@ List<Map<String, dynamic>> CourseLIst() {
       'credits': '1',
       'courseType': 'Core',
       'CoursePrototype': 'Practical',
+      'Semester': '1st Semester'
     },
   ];
 }
