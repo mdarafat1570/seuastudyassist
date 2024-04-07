@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:seustudyassist/CGP/cgpa_page.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
+import 'package:seustudyassist/academicCalender/academic_calender.dart';
 import 'package:seustudyassist/aipage2/Chatbot.dart';
 import 'package:seustudyassist/base/AppColour.dart';
 import 'package:seustudyassist/commonWidget/TextUtil.dart';
@@ -411,34 +412,12 @@ class _HomePageState extends State<HomePage> {
                                 Color.fromARGB(255, 119, 128, 180))),
                         GestureDetector(
                             onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Row(
-                                      children: [
-                                        Icon(Icons.error, color: Colors.red),
-                                        SizedBox(width: 8),
-                                        Text('Sorry'),
-                                      ],
-                                    ),
-                                    content: Text(
-                                        'This model is still under development'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                              slideNavigationPush(
+                                  AcademicCalenderPage(), context);
                             },
                             child: buildCard(
-                                'assets/picone.png',
-                                'Curriculum \n Details',
+                                'assets/AcademicCalenderPage.png',
+                                'Academic \nCalender',
                                 Color.fromARGB(255, 39, 55, 105))),
                         GestureDetector(
                             onTap: () {

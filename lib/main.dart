@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
-// import 'package:seustudyassist/widgetFile/bottomnavigatio nbar.dart';
 import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
 
 void main() {
   runApp(SeuStudyAssist());
 }
 
-class SeuStudyAssist extends StatelessWidget {
+class SeuStudyAssist extends StatefulWidget {
+  @override
+  State<SeuStudyAssist> createState() => _SeuStudyAssistState();
+}
+
+class _SeuStudyAssistState extends State<SeuStudyAssist> {
+  bool isDarkMode = false;
+
+    void toggleDarkMode(bool value) {
+    setState(() {
+      isDarkMode = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

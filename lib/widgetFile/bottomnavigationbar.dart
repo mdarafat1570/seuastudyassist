@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:seustudyassist/aiPage/pages/ai_home_page.dart';
 import 'package:seustudyassist/aipage2/Chatbot.dart';
-import 'package:seustudyassist/settingpage/Settingpage.dart';
-import 'package:seustudyassist/calculatorPage/calculator.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/dashboard/home_page.dart';
+import 'package:seustudyassist/settingpage/settingsMainPage/settings_main_page.dart';
 import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 
 class Navigation extends StatefulWidget {
@@ -19,10 +17,10 @@ class _NavigationState extends State<Navigation> {
   int countindex = 0;
   List<Widget> widgetList = [
     HomePage(),
-    CoursePage(),
-    CalculatorScreen(),
-    Chatbot(),
-    settingPage(),
+    const CoursePage(),
+    const CalculatorScreen(),
+    const Chatbot(),
+    const AccountScreen(),
   ];
 
   @override

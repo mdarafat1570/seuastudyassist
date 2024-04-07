@@ -1,4 +1,6 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:seustudyassist/base/connection_lost_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class UMSPage extends StatefulWidget {
@@ -8,12 +10,19 @@ class UMSPage extends StatefulWidget {
 
 class _UMSPageState extends State<UMSPage> {
   bool _isLoading = true;
+  bool _isConnected = true;
+  late Connectivity _connectivity;
 
   @override
   void initState() {
     super.initState();
-    // Enable hybrid composition for Android.
     WebView.platform = SurfaceAndroidWebView();
+    _connectivity = Connectivity();
+    _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
+      setState(() {
+        _isConnected = result != ConnectivityResult.none;
+      });
+    });
   }
 
   @override
@@ -38,25 +47,27 @@ class _UMSPageState extends State<UMSPage> {
         ],
         centerTitle: true,
       ),
-      body: Stack(
-        children: [
-          WebView(
-            initialUrl:
-                'https://ums.seu.edu.bd/sign-in?redirectURL=%2Fdashboard',
-            javascriptMode: JavascriptMode.unrestricted,
-            onPageFinished: (String url) {
-              setState(() {
-                _isLoading = false;
-              });
-            },
-          ),
-          if (_isLoading)
-            const LinearProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-              backgroundColor: Colors.transparent,
-            ),
-        ],
-      ),
+      body: _isConnected
+          ? Stack(
+              children: [
+                WebView(
+                  initialUrl:
+                      'https://ums.seu.edu.bd/sign-in?redirectURL=%2Fdashboard',
+                  javascriptMode: JavascriptMode.unrestricted,
+                  onPageFinished: (String url) {
+                    setState(() {
+                      _isLoading = false;
+                    });
+                  },
+                ),
+                if (_isLoading)
+                  const LinearProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                    backgroundColor: Colors.transparent,
+                  ),
+              ],
+            )
+          : ConnectionLostScreen(),
     );
   }
 }

@@ -20,6 +20,7 @@ class AppColor {
   static const Color secondaryColor700 = Color.fromARGB(255, 121, 209, 237);
   static const Color secondaryColor800 = Color.fromARGB(255, 61, 125, 95);
   static const Color secondaryColor900 = Color.fromARGB(255, 155, 207, 180);
+    static const Color secondaryColor1000 = Color.fromARGB(255, 5, 144, 236);
   static const Color textColor = Color(0xFF6F6F6F);
   static const Color accentColor = Color(0xFFDEF0DE);
   static const Color white = Colors.white;
