@@ -10,6 +10,13 @@ List<Map<String, dynamic>> FacultiesLIst() {
           'https://www.seu.edu.bd/dept/dept_images/cse/Shahriar-Manzoor.jpg',
       'email': 'Khan@gmail.com'
     },
+    {
+      'name': 'MD Arafat Khan',
+      'Position': 'Introduction to Accounting',
+      'phoneNumber': '533434533',
+      'imageUrl': 'https://seu.edu.bd/dept/dept_images/cse/AHQ.jpg',
+      'email': 'Khan@gmail.com'
+    },
   ];
 }
 
