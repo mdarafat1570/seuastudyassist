@@ -362,8 +362,7 @@ class _HomePageState extends State<HomePage> {
                                 'CGPA \n Calculator', AppColor.primaryColor)),
                         GestureDetector(
                             onTap: () {
-                              slideNavigationPush(
-                                  CGPACalculatorPage(), context);
+                              slideNavigationPush(CoursePage(), context);
                             },
                             child: buildCard(
                                 'assets/CurriculumDetails.png',
@@ -371,7 +370,7 @@ class _HomePageState extends State<HomePage> {
                                 Color.fromARGB(255, 39, 55, 105))),
                         GestureDetector(
                             onTap: () {
-                              slideNavigationPush(CoursePage(), context);
+                              slideNavigationPush(EssayCoverPage(), context);
                             },
                             child: buildCard(
                                 'assets/coverpageicon.png',

@@ -13,7 +13,7 @@ class SeuStudyAssist extends StatefulWidget {
 class _SeuStudyAssistState extends State<SeuStudyAssist> {
   bool isDarkMode = false;
 
-    void toggleDarkMode(bool value) {
+  void toggleDarkMode(bool value) {
     setState(() {
       isDarkMode = value;
     });
