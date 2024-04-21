@@ -29,7 +29,7 @@ Widget customTextBold(String text,
 }
 
 Widget commonTextfield(int numberOfLine, TextEditingController controller,
-    {double? width, bool isTextFieldEnable = true}) {
+    {double? width, bool isTextFieldEnable = true,  }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [

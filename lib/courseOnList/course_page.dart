@@ -80,6 +80,7 @@ class _CoursePageState extends State<CoursePage> {
                   fachcourseList['credits'],
                   fachcourseList['courseType'],
                   fachcourseList['CoursePrototype'],
+                  fachcourseList["Semester"],
                   onDetailsClick: () {
                     Navigator.push(
                       context,

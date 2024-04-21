@@ -8,7 +8,7 @@ import 'package:velocity_x/velocity_x.dart';
 enum SampleItem { itemOne, itemTwo, itemThree }
 
 Widget courserow(String courseCode, String courseTitle, String credits,
-    String courseType, String CoursePrototype,
+    String courseType, String CoursePrototype, String Semester,
     {required VoidCallback onDetailsClick}) {
   return InkWell(
     onTap: () {},
@@ -106,10 +106,9 @@ Widget courserow(String courseCode, String courseTitle, String credits,
                         const SizedBox(
                           width: 10,
                         ),
-                        customText("1st Semester",
-                                size: 12, color: Colors.white)
+                        customText(Semester, size: 12, color: Colors.white)
                             .box
-                            .color(("1st Semester" == "1st Semester")
+                            .color((Semester == Semester)
                                 ? Colors.green
                                 : Colors.red)
                             .roundedLg
