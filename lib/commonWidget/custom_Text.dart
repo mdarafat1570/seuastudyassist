@@ -69,3 +69,32 @@ Widget commonTextfield(int numberOfLine, TextEditingController controller,
     ],
   );
 }
+Widget commonTextfieldCover(int numberOfLine, TextEditingController controller,
+    {String? labelText}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      SizedBox(
+        height: null,
+        child: TextField(
+          maxLines: numberOfLine,
+          controller: controller,
+          decoration: InputDecoration(
+            labelText: labelText,
+            isCollapsed: true,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: const BorderSide(width: 1, color: Colors.blue),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: const BorderSide(width: 1, color: Colors.lightBlue),
+            ),
+          ),
+        ),
+      ),
+    ],
+  );
+}

@@ -11,9 +11,13 @@ import 'package:seustudyassist/commonWidget/course_widget.dart';
 import 'package:seustudyassist/commonWidget/custom_Text.dart';
 import 'package:seustudyassist/commonWidget/slideNavigation.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
+import 'package:seustudyassist/coverPage/cover_page.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
 import 'package:seustudyassist/model/faculties_list.dart';
+import 'package:seustudyassist/topNewsPage/top_news_page.dart';
 import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
+
+import '../widgetFile/common_slidar.dart';
 
 List<String> semesterList = [
   "First Semester",
@@ -86,17 +90,21 @@ class _HomePageState extends State<HomePage> {
 
   void _setGreeting() {
     var hour = DateTime.now().hour;
-    if (hour < 12) {
+    if (hour >= 4 && hour < 12) {
       setState(() {
         _greeting = 'Good Morning';
       });
-    } else if (hour < 18) {
+    } else if (hour >= 12 && hour < 15) {
       setState(() {
         _greeting = 'Good Afternoon';
       });
-    } else {
+    } else if (hour >= 15 && hour < 22) {
       setState(() {
         _greeting = 'Good Evening';
+      });
+    } else {
+      setState(() {
+        _greeting = 'Good Night';
       });
     }
   }
@@ -227,7 +235,8 @@ class _HomePageState extends State<HomePage> {
                                       width: 45,
                                       height: 45,
                                       decoration: BoxDecoration(
-                                        color: Colors.yellow[900],
+                                        color: const Color.fromARGB(
+                                            255, 233, 233, 233),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       child: const Icon(
@@ -242,23 +251,26 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        Row(
-                          children: [
-                            customTextBold("CSC Faculties",
-                                size: 16, color: Colors.white),
-                            Spacer(),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => FacultiesPage()),
-                                );
-                              },
-                              child: customTextBold("View All",
-                                  size: 13, color: Colors.white),
-                            ),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.all(1.0),
+                          child: Row(
+                            children: [
+                              customTextBold("CSC Faculties",
+                                  size: 16, color: Colors.white),
+                              Spacer(),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FacultiesPage()),
+                                  );
+                                },
+                                child: customTextBold("View All",
+                                    size: 13, color: Colors.white),
+                              ),
+                            ],
+                          ),
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
@@ -290,42 +302,44 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
+                    padding: const EdgeInsets.only(
+                      left: 5.0,
+                      right: 5.0,
+                    ),
                     child: Column(children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Row(
+                          children: [
+                            customTextUI("Top News", color: Colors.black),
+                            Spacer(),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TopNewsPage()),
+                                );
+                              },
+                              child: const Text(
+                                "View All",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Column(
                         children: [
-                          customTextUI("Top Courses", color: Colors.black),
-                          const Text(
-                            "view All",
-                            style: TextStyle(color: Colors.blue),
-                          )
+                          CommonCarouselSlider(),
+                          // Other widgets can go here
                         ],
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      SizedBox(
-                        height: 150,
-                        width: MediaQuery.sizeOf(context).width,
-                        child: ListView.separated(
-                          separatorBuilder: (context, index) {
-                            return const SizedBox(
-                              width: 10,
-                            );
-                          },
-                          itemCount: courses.length,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return courseWidget(
-                                imagePath: courses[index].imagePath,
-                                courseName: courses[index].name,
-                                ratting: courses[index].rating);
-                          },
-                        ),
-                      )
                     ]),
                   ),
                   Padding(
@@ -344,7 +358,7 @@ class _HomePageState extends State<HomePage> {
                               slideNavigationPush(
                                   CGPACalculatorPage(), context);
                             },
-                            child: buildCard('assets/Cgp.png',
+                            child: buildCard('assets/CGPA.png',
                                 'CGPA \n Calculator', AppColor.primaryColor)),
                         GestureDetector(
                             onTap: () {
@@ -352,38 +366,15 @@ class _HomePageState extends State<HomePage> {
                                   CGPACalculatorPage(), context);
                             },
                             child: buildCard(
-                                'assets/picone.png',
+                                'assets/CurriculumDetails.png',
                                 'Curriculum \n Details',
                                 Color.fromARGB(255, 39, 55, 105))),
                         GestureDetector(
                             onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Row(
-                                      children: [
-                                        Icon(Icons.error, color: Colors.red),
-                                        SizedBox(width: 8),
-                                        Text('Sorry'),
-                                      ],
-                                    ),
-                                    content: Text(
-                                        'This model is still under development'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                              slideNavigationPush(CoursePage(), context);
                             },
                             child: buildCard(
-                                'assets/picone.png',
+                                'assets/coverpageicon.png',
                                 'Cover  \n Page Generator',
                                 Color.fromARGB(255, 39, 55, 105))),
                       ],
@@ -399,7 +390,7 @@ class _HomePageState extends State<HomePage> {
                               slideNavigationPush(CalculatorScreen(), context);
                             },
                             child: buildCard(
-                                'assets/Tuitionfees.png',
+                                'assets/Tuitionfeesicon.png',
                                 'Tuition Fee\nCalculator',
                                 AppColor.primaryColor)),
                         GestureDetector(
@@ -407,7 +398,7 @@ class _HomePageState extends State<HomePage> {
                               slideNavigationPush(Chatbot(), context);
                             },
                             child: buildCard(
-                                'assets/logoAi.png',
+                                'assets/SEU_AI.png',
                                 'SEU \n Study Assist Ai',
                                 Color.fromARGB(255, 119, 128, 180))),
                         GestureDetector(
@@ -421,36 +412,35 @@ class _HomePageState extends State<HomePage> {
                                 Color.fromARGB(255, 39, 55, 105))),
                         GestureDetector(
                             onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Row(
-                                      children: [
-                                        Icon(Icons.error, color: Colors.red),
-                                        SizedBox(width: 8),
-                                        Text('Sorry'),
-                                      ],
-                                    ),
-                                    content: Text(
-                                        'This model is still under development'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                              slideNavigationPush(
+                                  AcademicCalenderPage(), context);
                             },
-                            child: buildCard(
-                                'assets/picone.png',
-                                'Cover  \n Page Generator',
-                                Color.fromARGB(255, 39, 55, 105))),
+                            child: buildCard('assets/The_clubs.png',
+                                'SEU clubs', Color.fromARGB(255, 82, 82, 82))),
                       ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(
+                    height: 150,
+                    width: MediaQuery.sizeOf(context).width,
+                    child: ListView.separated(
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          width: 10,
+                        );
+                      },
+                      itemCount: courses.length,
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return courseWidget(
+                          imagePath: courses[index].imagePath,
+                          courseName: courses[index].name,
+                        );
+                      },
                     ),
                   ),
                   Padding(
@@ -520,50 +510,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   )
-                  // SingleChildScrollView(
-                  //   child: Container(
-                  //     height: MediaQuery.of(context)
-                  //         .size
-                  //         .height, // Set a fixed height or use other desired constraints
-                  //     child: ListView.separated(
-                  //       scrollDirection: Axis.vertical,
-                  //       separatorBuilder: (context, index) {
-                  //         return const SizedBox(
-                  //           height: 2,
-                  //         );
-                  //       },
-                  //       itemCount: CourseLIst().length,
-                  //       shrinkWrap: true,
-                  //       itemBuilder: (context, index) {
-                  //         final fachcourseList = CourseLIst()[index];
-                  //         return courserow(
-                  //           fachcourseList['courseCode'],
-                  //           fachcourseList['courseTitle'],
-                  //           fachcourseList['credits'],
-                  //           fachcourseList['courseType'],
-                  //           fachcourseList['CoursePrototype'],
-                  //           onDetailsClick: () {
-                  //             Navigator.push(
-                  //               context,
-                  //               MaterialPageRoute(
-                  //                 builder: (context) => DetailsPage(),
-                  //               ),
-                  //             );
-                  //           },
-                  //         );
-                  //       },
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ],
           ),
         ),
-        // bottomNavigationBar: AppBottomNavigationBar.appBottomNavigation(
-        //   (index) {},
-        //   1,
-        // ),
       ),
     );
   }
@@ -582,39 +533,3 @@ class FeaturedCouseModel {
       required this.courseTitle,
       required this.numberOfCourse});
 }
-
-
-
-
-
-
-
-
-
-// Container(
-//       height: 225,
-//       child: CarouselSlider.builder(
-//         itemCount: images.length,
-//         options: CarouselOptions(
-//           autoPlay: true,
-//           autoPlayInterval: Duration(seconds: 3),
-//           autoPlayAnimationDuration: Duration(milliseconds: 800),
-//           enlargeCenterPage: true,
-//           onPageChanged: (index, reason) {
-//             setState(() {
-//               _currentPage = index;
-//             });
-//           },
-//         ),
-//         itemBuilder: (context, index, realIndex) {
-//           return Container(
-//             width: MediaQuery.of(context).size.width,
-//             color: Colors.blue,
-//             child: Image.network(
-//               images[index],
-//               fit: BoxFit.cover,
-//             ),
-//           );
-//         },
-//       ),
-//     );

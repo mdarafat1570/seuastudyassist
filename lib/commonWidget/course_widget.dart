@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:seustudyassist/dashboard/home_page.dart';
 
-Widget courseWidget(
-    {required imagePath, required courseName, required ratting}) {
+Widget courseWidget({
+  required imagePath,
+  required courseName,
+}) {
   return Stack(
     alignment: Alignment.topCenter,
     children: [
@@ -20,20 +22,6 @@ Widget courseWidget(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(courseName),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.star,
-                    color: Colors.amber[800],
-                    size: 18,
-                  ),
-                  const SizedBox(
-                    width: 2,
-                  ),
-                  Text(ratting)
-                ],
-              ),
             ],
           ),
         ),
@@ -55,11 +43,11 @@ Widget courseWidget(
 List<CouseModel> courses = [
   CouseModel(
       imagePath: "https://seu.edu.bd/slider/Summer-2024.png",
-      name: "Flag Hunt 2023",
-      rating: "4.5"),
+      name: "Admissions for Summer",
+      rating: "4.2"),
   CouseModel(
       imagePath: "https://seu.edu.bd/slider/Conv7.jpg",
-      name: "Flag Hunt 2023",
+      name: "7th Convocation 2020",
       rating: "4.2"),
   CouseModel(
       imagePath: "https://seu.edu.bd/slider/Slide6JobFair.JPG",

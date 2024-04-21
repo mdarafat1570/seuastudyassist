@@ -55,6 +55,8 @@ dependencies:
   ionicons: ^0.2.2
   table_calendar: ^3.0.9
   connectivity_plus: ^3.0.2
+  open_file: ^3.3.2
+  pdf: ^3.10.8
   
 
 dev_dependencies:
