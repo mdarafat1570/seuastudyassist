@@ -56,7 +56,7 @@ class IntroPage3 extends StatelessWidget {
                         Expanded(
                           child: welcomeButon(
                             buttonText: 'Start',
-                            onTap: Navigation(),
+                            onTap: WelcomeScreen(),
                             color: Colors.transparent,
                             textColor: Colors.white,
                           ),
