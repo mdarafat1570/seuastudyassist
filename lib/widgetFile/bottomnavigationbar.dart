@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:seustudyassist/aipage2/Chatbot.dart';
+import 'package:seustudyassist/aipage2/home_page.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/dashboard/home_page.dart';
 import 'package:seustudyassist/settingpage/settingsMainPage/settings_main_page.dart';
@@ -19,7 +20,7 @@ class _NavigationState extends State<Navigation> {
     HomePage(),
     const CoursePage(),
     const CalculatorScreen(),
-    const Chatbot(),
+    AiHomePage(),
     const AccountScreen(),
   ];
 

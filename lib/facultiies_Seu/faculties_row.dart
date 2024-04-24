@@ -150,7 +150,7 @@ Widget FacultyRow(
                       child: Icon(
                         FontAwesomeIcons.circleInfo,
                         size: 16,
-                        color: AppColor.primaryColor,
+                        color: Color.fromARGB(255, 50, 46, 173),
                       ),
                     ),
                   ],

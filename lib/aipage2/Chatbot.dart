@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as htpp;
+import 'package:seustudyassist/aipage2/home_page.dart';
 
 class Chatbot extends StatefulWidget {
   const Chatbot({super.key});
@@ -69,9 +71,18 @@ class _ChatbotState extends State<Chatbot> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  AiHomePage();
+                });
+              },
+              icon: Icon(Icons.arrow_back_ios_outlined))
+        ],
         backgroundColor: Colors.white,
         title: const Text(
-          "Seu study assist",
+          "Cover Page",
           style: TextStyle(color: Colors.black, fontSize: 20),
         ),
         centerTitle: true,
