@@ -60,40 +60,28 @@ class _ChatbotState extends State<Chatbot> {
     setState(() {});
   }
 
-  // AIzaSyBznkSAutAU5jPsUYA_hrrm1oY_WgzlzbA
-
-  // curl \
-  // -H 'Content-Type: application/json' \
-  // -d '{"contents":[{"parts":[{"text":"Write a story about a magic backpack"}]}]}' \
-  // -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY'
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                setState(() {
-                  AiHomePage();
-                });
-              },
-              icon: Icon(Icons.arrow_back_ios_outlined))
-        ],
         backgroundColor: Colors.white,
         title: const Text(
-          "Cover Page",
+          "SEU Study Assistant",
           style: TextStyle(color: Colors.black, fontSize: 20),
         ),
         centerTitle: true,
       ),
-      body: DashChat(
+      body: Container(
+        padding: EdgeInsets.only(bottom: 25.0),
+        child: DashChat(
           typingUsers: typing,
           currentUser: myself,
           onSend: (ChatMessage m) {
             getdata(m);
           },
-          messages: allmessages),
+          messages: allmessages,
+        ),
+      ),
     );
   }
 }
