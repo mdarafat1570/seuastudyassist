@@ -25,13 +25,14 @@ This app provides a range of features and resources tailored to support students
 6.	Academic Calendar:
    •	Stay organized and plan academic schedule effectively.
    •	Never miss important deadlines with the built-in calendar.
-7.	Teacher SEU Study Assist Ai:
-   •	Engage with AI-powered virtual teacher for additional support and guidance.
-   •	Access various modules to enhance learning experience.
-8.	Curriculum Details:
+7.	Curriculum Details:
    •	Course Books: Access a comprehensive list of recommended course books.
    •	Suggested Readings: Explore additional reading materials suggested by professors and experts.
    •	Study Resources: Find supplementary study materials like lecture notes, presentations, and practice exams.
+
+One of our features is SEU Study Assist Ai:
+   •	Engage with AI-powered virtual teacher for additional support and guidance.
+   •	Access various modules to enhance learning experience.
 
 How to Use:
 
