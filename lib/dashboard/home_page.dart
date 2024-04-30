@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:seustudyassist/CGP/cgpa_page.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
 import 'package:seustudyassist/academicCalender/academic_calender.dart';
@@ -12,6 +13,11 @@ import 'package:seustudyassist/commonWidget/custom_Text.dart';
 import 'package:seustudyassist/commonWidget/slideNavigation.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/coverPage/cover_page.dart';
+import 'package:seustudyassist/coverPage/features/personalization/controllers/form/date_controller.dart';
+import 'package:seustudyassist/coverPage/features/personalization/controllers/form/field_controller.dart';
+import 'package:seustudyassist/coverPage/features/personalization/controllers/form/form_controller.dart';
+import 'package:seustudyassist/coverPage/features/personalization/controllers/services/student_local_storage.dart';
+import 'package:seustudyassist/coverPage/features/personalization/screens/info_fillup_screen.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
 import 'package:seustudyassist/model/faculties_list.dart';
 import 'package:seustudyassist/topNewsPage/top_news_page.dart';
@@ -56,17 +62,22 @@ class _HomePageState extends State<HomePage> {
   late Timer _timer;
   String _greeting = '';
   late ScrollController _scrollController;
-  // PageController _pageController;
   int _currentPage = 0;
   PageController _pageController = PageController();
   int currentPage = 0;
+  late DateController dateController;
+  late FormController form;
 
   @override
   void initState() {
     super.initState();
     _startAutoScroll();
     _setGreeting();
+
     _scrollController = ScrollController();
+    dateController = Get.put(DateController());
+
+    form = Get.put(FormController());
     _timer = Timer.periodic(Duration(seconds: 5), (timer) {
       if (_scrollController.hasClients) {
         double maxScrollExtent = _scrollController.position.maxScrollExtent;

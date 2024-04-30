@@ -2,6 +2,7 @@
     "cmake.sourceDirectory": "E:/Study/Flutter/Main_Project/seuastudyassist/linux",
     "java.configuration.updateBuildConfiguration": "interactive",
     "cSpell.words": [
-        "Acalcstate"
+        "Acalcstate",
+        "Fluttertoast"
     ]
 }
