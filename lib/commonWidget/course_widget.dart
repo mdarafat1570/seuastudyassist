@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:seustudyassist/dashboard/home_page.dart';
 
 Widget courseWidget({
@@ -33,8 +34,14 @@ Widget courseWidget({
           borderRadius: BorderRadius.circular(15),
         ),
         child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.network(imagePath, fit: BoxFit.fill)),
+          borderRadius: BorderRadius.circular(15),
+          child: CachedNetworkImage(
+            imageUrl: imagePath,
+            fit: BoxFit.fill,
+            placeholder: (context, url) => CircularProgressIndicator(),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
+        ),
       ),
     ],
   );

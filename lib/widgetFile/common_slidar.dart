@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 // ignore: slash_for_doc_comments
@@ -22,21 +23,24 @@ class _CommonCarouselSliderState extends State<CommonCarouselSlider> {
       'https://i.ibb.co/stYn1Fr/SEUCLub.png',
       'https://i.ibb.co/0c5rdVH/SEUCLub2.png',
     ].map((url) {
-      return Container(
-        margin: EdgeInsets.all(10),
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          child: Stack(
-            children: [
-              Image.network(
-                url,
-                fit: BoxFit.cover,
-                width: 1000,
-              ),
-            ],
-          ),
+     return Container(
+  margin: EdgeInsets.all(10),
+  child: ClipRRect(
+    borderRadius: BorderRadius.all(Radius.circular(10)),
+    child: Stack(
+      children: [
+        CachedNetworkImage(
+          imageUrl: url,
+          fit: BoxFit.cover,
+          width: 1000,
+          placeholder: (context, url) => CircularProgressIndicator(), // Placeholder widget while loading
+          errorWidget: (context, url, error) => Icon(Icons.error), // Widget to display in case of error
         ),
-      );
+      ],
+    ),
+  ),
+);
+
     }).toList();
     super.initState();
   }

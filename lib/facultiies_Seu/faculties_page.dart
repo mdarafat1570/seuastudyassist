@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_row.dart';
 import 'package:seustudyassist/model/faculties_list.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class FacultiesPage extends StatefulWidget {
   const FacultiesPage({Key? key}) : super(key: key);
@@ -70,21 +71,13 @@ class _FacultiesPageState extends State<FacultiesPage> {
             child: ListView.builder(
               itemCount: FacultiesLIst().length,
               itemBuilder: (context, index) {
-                final fachFacultiesLIst = FacultiesLIst()[index];
+                final faculty = FacultiesLIst()[index];
                 return FacultyRow(
-                  fachFacultiesLIst['name'],
-                  fachFacultiesLIst['Position'],
-                  fachFacultiesLIst['phoneNumber'],
-                  fachFacultiesLIst['imageUrl'],
-                  fachFacultiesLIst['email'],
-
-                  // onDetailsClick: () {
-                  //   // Navigator.push(
-                  //   //   context,
-                  //   //   MaterialPageRoute(
-                  //   //       builder: (context) => PosOrderDetails(ordernumber: '',)),
-                  //   // );
-                  // },
+                  faculty['name'],
+                  faculty['Position'],
+                  faculty['phoneNumber'],
+                  faculty['imageUrl'],
+                  faculty['email'],
                 );
               },
             ),

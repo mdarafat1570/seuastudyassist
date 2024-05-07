@@ -348,7 +348,6 @@ class _HomePageState extends State<HomePage> {
                       Column(
                         children: [
                           CommonCarouselSlider(),
-                          // Other widgets can go here
                         ],
                       ),
                     ]),
@@ -391,7 +390,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(6.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -409,7 +408,7 @@ class _HomePageState extends State<HomePage> {
                             },
                             child: buildCard(
                                 'assets/SEU_AI.png',
-                                'SEU \n Study Assist Ai',
+                                'SEU\nStudy Assist Ai',
                                 Color.fromARGB(255, 119, 128, 180))),
                         GestureDetector(
                             onTap: () {
@@ -418,7 +417,7 @@ class _HomePageState extends State<HomePage> {
                             },
                             child: buildCard(
                                 'assets/AcademicCalenderPage.png',
-                                'Academic \nCalender',
+                                'Academic\nCalender',
                                 Color.fromARGB(255, 39, 55, 105))),
                         GestureDetector(
                             onTap: () {
@@ -426,7 +425,7 @@ class _HomePageState extends State<HomePage> {
                                   AcademicCalenderPage(), context);
                             },
                             child: buildCard('assets/The_clubs.png',
-                                'SEU clubs', Color.fromARGB(255, 82, 82, 82))),
+                                'SEU\nclubs', Color.fromARGB(255, 82, 82, 82))),
                       ],
                     ),
                   ),
@@ -435,7 +434,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(
                     height: 150,
-                    width: MediaQuery.sizeOf(context).width,
+                    width: MediaQuery.of(context).size.width,
                     child: ListView.separated(
                       separatorBuilder: (context, index) {
                         return const SizedBox(

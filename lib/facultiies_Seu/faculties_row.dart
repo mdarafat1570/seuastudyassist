@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:seustudyassist/base/AppColour.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-enum SampleItem { itemOne, itemTwo, itemThree }
+import 'package:cached_network_image/cached_network_image.dart';
 
 Widget FacultyRow(
   String name,
@@ -29,9 +27,15 @@ Widget FacultyRow(
                   SizedBox(
                     width: 60.0,
                     height: 60.0,
-                    child: Image(
-                      image: NetworkImage(
-                        imageUrl,
+                    child: CachedNetworkImage(
+                      imageUrl: imageUrl,
+                      placeholder: (context, url) => Image.asset(
+                        'assets/emptyprofile.png',
+                        fit: BoxFit.cover,
+                      ),
+                      errorWidget: (context, url, error) => Image.asset(
+                        'assets/emptyprofile.png',
+                        fit: BoxFit.cover,
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -125,12 +129,15 @@ Widget FacultyRow(
                           color: const Color.fromARGB(255, 78, 100, 144),
                         ),
                       ),
-                      Text(
-                        position,
-                        style: GoogleFonts.openSans(
-                          letterSpacing: .5,
-                          fontSize: 12,
-                          color: const Color.fromARGB(255, 78, 100, 144),
+                      Expanded(
+                        child: Text(
+                          position,
+                          style: GoogleFonts.openSans(
+                            letterSpacing: .5,
+                            fontSize: 12,
+                            color: const Color.fromARGB(255, 78, 100, 144),
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],

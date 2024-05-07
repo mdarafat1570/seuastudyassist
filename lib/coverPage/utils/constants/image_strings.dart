@@ -20,6 +20,6 @@ class CImages {
   static const String webLogo = "assets/logos/web.png";
 
   /// Me
-  static const String me = "assets/logos/me.png";
+  static const String me = "assets/arafatnew.jpg";
   static const String rafi = "assets/logos/rafi.png";
 }

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:seustudyassist/CGP/cgpa_page.dart';
+import 'package:seustudyassist/commonWidget/slideNavigation.dart';
+import 'package:seustudyassist/settingpage/settingsMainPage/developer_info.dart';
+import 'package:seustudyassist/settingpage/settingsMainPage/developer_info_page.dart';
 import '../forward_button.dart';
 import '../setting_item.dart';
 import '../setting_switch.dart';
@@ -18,13 +22,13 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 80),
               const Text(
                 "Settings",
                 style: TextStyle(
@@ -113,17 +117,17 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               const SizedBox(height: 20),
               SettingSwitch(
-                  title: "Dark Mode",
-                  icon: Ionicons.earth,
-                  bgColor: Colors.purple.shade100,
-                  iconColor: Colors.purple,
-                  value: isDarkMode,
-                  onTap: (value) {
-                    setState(() {
-                      isDarkMode = value;
-                    });
-                  },
-                ),
+                title: "Dark Mode",
+                icon: Ionicons.earth,
+                bgColor: Colors.purple.shade100,
+                iconColor: Colors.purple,
+                value: isDarkMode,
+                onTap: (value) {
+                  setState(() {
+                    isDarkMode = value;
+                  });
+                },
+              ),
               const SizedBox(height: 20),
               SettingItem(
                 title: "Help",
@@ -131,6 +135,16 @@ class _AccountScreenState extends State<AccountScreen> {
                 bgColor: Colors.red.shade100,
                 iconColor: Colors.red,
                 onTap: () {},
+              ),
+              const SizedBox(height: 20),
+              SettingItem(
+                title: "Developer Info",
+                icon: Ionicons.desktop_outline,
+                bgColor: Colors.blueGrey,
+                iconColor: Colors.white,
+                onTap: () {
+                  slideNavigationPush(DevelopInfoPage(), context);
+                },
               ),
             ],
           ),

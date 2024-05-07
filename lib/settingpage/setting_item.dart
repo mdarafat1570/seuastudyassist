@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'forward_button.dart';
+
 class SettingItem extends StatelessWidget {
   final String title;
   final Color bgColor;
@@ -46,12 +47,12 @@ class SettingItem extends StatelessWidget {
           const Spacer(),
           value != null
               ? Text(
-            value!,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          )
+                  value!,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                )
               : const SizedBox(),
           const SizedBox(width: 20),
           ForwardButton(

@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> CourseLIst() {
+List<Map<String, dynamic>> courseList() {
   return [
     {
       'courseCode': 'ACT141',
