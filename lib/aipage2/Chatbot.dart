@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as htpp;
 import 'package:seustudyassist/aipage2/home_page.dart';
+import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
 
 class Chatbot extends StatefulWidget {
   const Chatbot({super.key});

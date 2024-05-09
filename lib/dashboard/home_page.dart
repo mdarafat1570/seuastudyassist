@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:seustudyassist/CGP/cgpa_page.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
@@ -24,6 +26,7 @@ import 'package:seustudyassist/topNewsPage/top_news_page.dart';
 import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 
 import '../widgetFile/common_slidar.dart';
+import './extra_container.dart';
 
 List<String> semesterList = [
   "First Semester",
@@ -352,83 +355,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ]),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(UMSPage(), context);
-                            },
-                            child: buildCard('assets/LgoUMS.png', 'UMS\n',
-                                AppColor.primaryColor)),
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(
-                                  CGPACalculatorPage(), context);
-                            },
-                            child: buildCard('assets/CGPA.png',
-                                'CGPA \n Calculator', AppColor.primaryColor)),
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(CoursePage(), context);
-                            },
-                            child: buildCard(
-                                'assets/CurriculumDetails.png',
-                                'Curriculum \n Details',
-                                Color.fromARGB(255, 39, 55, 105))),
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(EssayCoverPage(), context);
-                            },
-                            child: buildCard(
-                                'assets/coverpageicon.png',
-                                'Cover  \n Page Generator',
-                                Color.fromARGB(255, 39, 55, 105))),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(CalculatorScreen(), context);
-                            },
-                            child: buildCard(
-                                'assets/Tuitionfeesicon.png',
-                                'Tuition Fee\nCalculator',
-                                AppColor.primaryColor)),
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(Chatbot(), context);
-                            },
-                            child: buildCard(
-                                'assets/SEU_AI.png',
-                                'SEU\nStudy Assist Ai',
-                                Color.fromARGB(255, 119, 128, 180))),
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(
-                                  AcademicCalenderPage(), context);
-                            },
-                            child: buildCard(
-                                'assets/AcademicCalenderPage.png',
-                                'Academic\nCalender',
-                                Color.fromARGB(255, 39, 55, 105))),
-                        GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(
-                                  AcademicCalenderPage(), context);
-                            },
-                            child: buildCard('assets/The_clubs.png',
-                                'SEU\nclubs', Color.fromARGB(255, 82, 82, 82))),
-                      ],
-                    ),
-                  ),
+                  ExtraContainer(),
                   SizedBox(
                     height: 15,
                   ),
