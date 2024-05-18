@@ -7,6 +7,7 @@ import 'package:seustudyassist/base/AppColour.dart';
 import 'package:seustudyassist/commonWidget/slideNavigation.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/coverPage/cover_page.dart';
+import 'package:seustudyassist/coverPage/features/personalization/screens/info_fillup_screen.dart';
 import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 
 class ExtraContainer extends StatefulWidget {
@@ -17,6 +18,8 @@ class ExtraContainer extends StatefulWidget {
 }
 
 class _ExtraContainerState extends State<ExtraContainer> {
+
+ 
   @override
   Column buildCard(String imagePath, String text, Color color) {
     return Column(
@@ -39,6 +42,9 @@ class _ExtraContainerState extends State<ExtraContainer> {
             textAlign: TextAlign.center, style: const TextStyle(fontSize: 10)),
       ],
     );
+  }
+     void slideNavigationPush2(Widget screen, BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => screen));
   }
 
   Widget build(BuildContext context) {
@@ -79,13 +85,15 @@ class _ExtraContainerState extends State<ExtraContainer> {
                                 'Curriculum \n Details',
                                 Color.fromARGB(255, 39, 55, 105))),
                         GestureDetector(
-                            onTap: () {
-                              slideNavigationPush(EssayCoverPage(), context);
-                            },
-                            child: buildCard(
-                                'assets/coverpageicon.png',
-                                'Cover  \n Page Generator',
-                                Color.fromARGB(255, 39, 55, 105))),
+                          onTap: () {
+                            slideNavigationPush2(InfoFillUpScreen(),
+                                context); // Make sure 'context' is valid here
+                          },
+                          child: buildCard(
+                              'assets/coverpageicon.png',
+                              'Cover \n Page Generator',
+                              Color.fromARGB(255, 39, 55, 105)),
+                        )
                       ],
                     ),
                     Row(
