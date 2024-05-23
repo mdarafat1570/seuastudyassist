@@ -76,10 +76,8 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _startAutoScroll();
     _setGreeting();
-
     _scrollController = ScrollController();
     dateController = Get.put(DateController());
-
     form = Get.put(FormController());
     _timer = Timer.periodic(Duration(seconds: 5), (timer) {
       if (_scrollController.hasClients) {
@@ -134,6 +132,10 @@ class _HomePageState extends State<HomePage> {
     _scrollController.dispose();
     // _pageController.dispose();
     super.dispose();
+  }
+
+  void slideNavigationPush2(Widget screen, BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => screen));
   }
 
   Column buildCard(String imagePath, String text, Color color) {
@@ -356,7 +358,8 @@ class _HomePageState extends State<HomePage> {
                     ]),
                   ),
                   ExtraContainer(),
-                  SizedBox(
+
+                  const SizedBox(
                     height: 15,
                   ),
                   SizedBox(

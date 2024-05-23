@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -34,6 +32,9 @@ class _InfoFillUpScreenState extends State<InfoFillUpScreen> {
   void initState() {
     super.initState();
     localStorage.getStudentInfo();
+    Get.put(FieldController());
+    Get.put(FormController());
+    Get.put(DateController());
   }
 
   @override
@@ -41,11 +42,15 @@ class _InfoFillUpScreenState extends State<InfoFillUpScreen> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text("Generate Cover Page"),
-          actions: const [ToggleThemeButton()],
+          backgroundColor: Colors.white,
+          title: const Text(
+            "Cover Page",
+            style: TextStyle(color: Colors.black, fontSize: 20),
+          ),
+          centerTitle: true,
         ),
-        drawer: const AppDrawer(),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
@@ -215,17 +220,15 @@ class _InfoFillUpScreenState extends State<InfoFillUpScreen> {
                         maxLength: 20,
                       ),
                     ),
-                    const SizedBox(width: CSizes.spaceBtwInputFields),
-                    Expanded(
-                      child: CTextFormField(
-                        label: 'Date',
-                        prefixIcon: Iconsax.calendar_search,
-                        onTap: () => date.datePicker(context),
-                        controller: date.submissionDateController,
-                        readOnly: true,
-                      ),
-                    ),
                   ],
+                ),
+                const SizedBox(height: 12),
+                CTextFormField(
+                  label: 'Date',
+                  prefixIcon: Iconsax.calendar_search,
+                  onTap: () => date.datePicker(context),
+                  controller: date.submissionDateController,
+                  readOnly: true,
                 ),
                 const SizedBox(height: CSizes.spaceBtwSections),
 
