@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seustudyassist/CGP/cgpa_page.dart';
+import 'package:seustudyassist/MapSEU/Map_seu_page.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
 import 'package:seustudyassist/academicCalender/academic_calender.dart';
 import 'package:seustudyassist/aipage2/Chatbot.dart';
@@ -8,6 +9,9 @@ import 'package:seustudyassist/commonWidget/slideNavigation.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/coverPage/cover_page.dart';
 import 'package:seustudyassist/coverPage/features/personalization/screens/info_fillup_screen.dart';
+import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
+import 'package:seustudyassist/importantContacts/important_info_page.dart';
+import 'package:seustudyassist/topNewsPage/top_news_page.dart';
 import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -167,21 +171,24 @@ class _ExtraContainerState extends State<ExtraContainer> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            buildCard('assets/LgoUMS.png', 'UMS\n',
-                                AppColor.primaryColor, UMSPage()),
                             buildCard(
-                                'assets/Scanner_icon.png',
+                                'assets/important_info.png',
+                                'Important \n info SEU ',
+                                Color.fromARGB(255, 67, 155, 126),
+                                ImportantInfoPage()),
+                            buildCard(
+                                'assets/Cam.png',
                                 'CamScanner \n ',
-                                AppColor.primaryColor,
+                                const Color.fromARGB(255, 126, 173, 46),
                                 CGPACalculatorPage()),
                             buildCard(
-                                'assets/CurriculumDetails.png',
-                                'Curriculum \n Details',
-                                Color.fromARGB(255, 39, 55, 105),
-                                CoursePage()),
+                                'assets/Map.png',
+                                'SEU Map \n Your location',
+                                Color.fromARGB(255, 83, 39, 105),
+                                SEUMapPage()),
                             buildCard(
-                                'assets/coverpageicon.png',
-                                'Cover  \n Page Generator',
+                                'assets/sitProtal.png',
+                                'Site \n Protal',
                                 Color.fromARGB(255, 39, 55, 105),
                                 EssayCoverPage()),
                           ],
@@ -189,25 +196,22 @@ class _ExtraContainerState extends State<ExtraContainer> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
+                            buildCard('assets/faculties.png', 'Faculties info',
+                                AppColor.primaryColor, FacultiesPage()),
                             buildCard(
-                                'assets/Tuitionfeesicon.png',
-                                'Tuition Fee\nCalculator',
-                                AppColor.primaryColor,
-                                CalculatorScreen()),
-                            buildCard(
-                                'assets/SEU_AI.png',
-                                'SEU\nStudy Assist Ai',
+                                'assets/news.png',
+                                'Top News',
                                 Color.fromARGB(255, 119, 128, 180),
-                                Chatbot()),
+                                TopNewsPage()),
                             buildCard(
-                                'assets/AcademicCalenderPage.png',
-                                'Academic\nCalender',
-                                Color.fromARGB(255, 39, 55, 105),
+                                'assets/cafa.png',
+                                'Cafe food info',
+                                Color.fromARGB(255, 153, 171, 50),
                                 AcademicCalenderPage()),
                             buildCard(
-                                'assets/The_clubs.png',
-                                'SEU\nclubs',
-                                Color.fromARGB(255, 82, 82, 82),
+                                'assets/Teacher_selection.png',
+                                'Subject selection',
+                                Color.fromARGB(255, 104, 47, 61),
                                 AcademicCalenderPage()),
                           ],
                         ),
