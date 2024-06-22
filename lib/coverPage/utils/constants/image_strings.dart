@@ -22,4 +22,5 @@ class CImages {
   /// Me
   static const String me = "assets/arafatnew.jpg";
   static const String rafi = "assets/logos/rafi.png";
+  static const String rasel = "assets/rasell.jpg";
 }
