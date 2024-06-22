@@ -4,26 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:seustudyassist/CGP/cgpa_page.dart';
-import 'package:seustudyassist/UMS/ums_web.dart';
-import 'package:seustudyassist/academicCalender/academic_calender.dart';
-import 'package:seustudyassist/aipage2/Chatbot.dart';
 import 'package:seustudyassist/base/AppColour.dart';
 import 'package:seustudyassist/commonWidget/TextUtil.dart';
 import 'package:seustudyassist/commonWidget/course_widget.dart';
 import 'package:seustudyassist/commonWidget/custom_Text.dart';
-import 'package:seustudyassist/commonWidget/slideNavigation.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
-import 'package:seustudyassist/coverPage/cover_page.dart';
 import 'package:seustudyassist/coverPage/features/personalization/controllers/form/date_controller.dart';
-import 'package:seustudyassist/coverPage/features/personalization/controllers/form/field_controller.dart';
 import 'package:seustudyassist/coverPage/features/personalization/controllers/form/form_controller.dart';
-import 'package:seustudyassist/coverPage/features/personalization/controllers/services/student_local_storage.dart';
-import 'package:seustudyassist/coverPage/features/personalization/screens/info_fillup_screen.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
 import 'package:seustudyassist/model/faculties_list.dart';
 import 'package:seustudyassist/topNewsPage/top_news_page.dart';
-import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 
 import '../widgetFile/common_slidar.dart';
 import './extra_container.dart';
@@ -76,10 +66,8 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _startAutoScroll();
     _setGreeting();
-
     _scrollController = ScrollController();
     dateController = Get.put(DateController());
-
     form = Get.put(FormController());
     _timer = Timer.periodic(Duration(seconds: 5), (timer) {
       if (_scrollController.hasClients) {
@@ -134,6 +122,10 @@ class _HomePageState extends State<HomePage> {
     _scrollController.dispose();
     // _pageController.dispose();
     super.dispose();
+  }
+
+  void slideNavigationPush2(Widget screen, BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => screen));
   }
 
   Column buildCard(String imagePath, String text, Color color) {
@@ -356,8 +348,8 @@ class _HomePageState extends State<HomePage> {
                     ]),
                   ),
                   ExtraContainer(),
-                  SizedBox(
-                    height: 15,
+                  const SizedBox(
+                    height: 25,
                   ),
                   SizedBox(
                     height: 150,

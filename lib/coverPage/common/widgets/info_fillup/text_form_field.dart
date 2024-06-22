@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CTextFormField extends StatelessWidget {
   const CTextFormField({
-    super.key,
+    Key? key,
     required this.label,
     required this.prefixIcon,
     this.maxLength,
@@ -12,7 +12,7 @@ class CTextFormField extends StatelessWidget {
     this.onTap,
     this.readOnly = false,
     this.keyBoardType = TextInputType.text,
-  });
+  }) : super(key: key);
 
   final String label;
   final int? maxLength;
@@ -26,18 +26,30 @@ class CTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onTap: onTap,
-      maxLength: maxLength,
-      controller: controller,
-      textInputAction: textInputAction,
-      decoration: InputDecoration(
-        counterText: '',
-        label: Text(label),
-        prefixIcon: Icon(prefixIcon),
+    return SizedBox(
+      width: double.infinity,
+      child: TextField(
+        onTap: onTap,
+        maxLength: maxLength,
+        controller: controller,
+        textInputAction: textInputAction,
+        decoration: InputDecoration(
+          labelText: label,
+          prefixIcon: Icon(prefixIcon),
+          isCollapsed: true,
+          contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: const BorderSide(width: 1, color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: const BorderSide(width: 1, color: Colors.lightBlue),
+          ),
+        ),
+        readOnly: readOnly,
+        keyboardType: keyBoardType,
       ),
-      readOnly: readOnly,
-      keyboardType: keyBoardType,
     );
   }
 }
