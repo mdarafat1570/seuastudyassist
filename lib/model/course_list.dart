@@ -42,7 +42,7 @@ List<Map<String, dynamic>> courseList() {
     },
     {
       'courseCode': 'CSE241',
-      'courseTitle': 'Date Structures',
+      'courseTitle': 'Data Structures',
       'credits': '3',
       'courseType': 'Core',
       'CoursePrototype': 'Theory',
@@ -50,7 +50,7 @@ List<Map<String, dynamic>> courseList() {
     },
     {
       'courseCode': 'CSE242',
-      'courseTitle': 'Date Structures Lab',
+      'courseTitle': 'Data Structures Lab',
       'credits': '1',
       'courseType': 'Core',
       'CoursePrototype': 'Practical',
