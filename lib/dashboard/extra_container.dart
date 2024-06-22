@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:seustudyassist/CGP/cgpa_page.dart';
+import 'package:seustudyassist/CamScanner/cam_scanner_page.dart';
 import 'package:seustudyassist/MapSEU/Map_seu_page.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
 import 'package:seustudyassist/academicCalender/academic_calender.dart';
 import 'package:seustudyassist/aipage2/Chatbot.dart';
 import 'package:seustudyassist/base/AppColour.dart';
-import 'package:seustudyassist/commonWidget/slideNavigation.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
 import 'package:seustudyassist/coverPage/cover_page.dart';
 import 'package:seustudyassist/coverPage/features/personalization/screens/info_fillup_screen.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
 import 'package:seustudyassist/importantContacts/important_info_page.dart';
+
+import 'package:seustudyassist/loginPageSEU/SEU_login_page.dart';
 import 'package:seustudyassist/topNewsPage/top_news_page.dart';
 import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -180,7 +182,7 @@ class _ExtraContainerState extends State<ExtraContainer> {
                                 'assets/Cam.png',
                                 'CamScanner \n ',
                                 const Color.fromARGB(255, 126, 173, 46),
-                                CGPACalculatorPage()),
+                                CamScannerPage()),
                             buildCard(
                                 'assets/Map.png',
                                 'SEU Map \n Your location',
@@ -212,7 +214,7 @@ class _ExtraContainerState extends State<ExtraContainer> {
                                 'assets/Teacher_selection.png',
                                 'Subject selection',
                                 Color.fromARGB(255, 104, 47, 61),
-                                AcademicCalenderPage()),
+                                LoginPageSEU()),
                           ],
                         ),
                       ],

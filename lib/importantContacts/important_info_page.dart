@@ -162,7 +162,8 @@ class ContactCategoryWidget extends StatelessWidget {
                     if (contact.phoneNumber.isNotEmpty)
                       IconButton(
                         icon: Icon(Icons.phone),
-                        onPressed: () => _launchPhone(contact.phoneNumber),
+                        onPressed: () =>
+                            _launchPhone(contact.phoneNumber, context),
                       ),
                     if (contact.phoneNumber.isNotEmpty)
                       Text('Phone: ${contact.phoneNumber}'),
@@ -173,7 +174,7 @@ class ContactCategoryWidget extends StatelessWidget {
                     if (contact.email.isNotEmpty)
                       IconButton(
                         icon: Icon(Icons.email),
-                        onPressed: () => _launchEmail(contact.email),
+                        onPressed: () => _launchEmail(contact.email, context),
                       ),
                     if (contact.email.isNotEmpty)
                       Text('Email: ${contact.email}'),
@@ -187,16 +188,16 @@ class ContactCategoryWidget extends StatelessWidget {
     );
   }
 
-  void _launchPhone(String phoneNumber) async {
+  void _launchPhone(String phoneNumber, BuildContext context) async {
     final Uri url = Uri(scheme: 'tel', path: phoneNumber);
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      throw 'Could not launch $phoneNumber';
+      _showErrorDialog(context, 'Could not launch $phoneNumber');
     }
   }
 
-  void _launchEmail(String email) async {
+  void _launchEmail(String email, BuildContext context) async {
     final Uri url = Uri(
       scheme: 'mailto',
       path: email,
@@ -204,7 +205,27 @@ class ContactCategoryWidget extends StatelessWidget {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      throw 'Could not launch $email';
+      _showErrorDialog(context, 'Could not launch $email');
     }
+  }
+
+  void _showErrorDialog(BuildContext context, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Error'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
