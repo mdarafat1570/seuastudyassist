@@ -241,6 +241,116 @@ class _DevelopInfoPageState extends State<DevelopInfoPage> {
                     ),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Card(
+                  borderOnForeground: true,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              backgroundColor: Colors.teal,
+                              radius: 20,
+                              child: CircleAvatar(
+                                backgroundImage:
+                                    AssetImage(CImages.rasel), //NetworkImage
+                                radius: 20,
+                              ),
+                            ),
+                            const SizedBox(width: PDFSpacing.spaceBtwSection),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "MD. Rasel",
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                                Text(
+                                  "Mobile App Developer",
+                                  style: Theme.of(context).textTheme.labelSmall,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: CSizes.spaceBtwInputFields - 4),
+                        Text(
+                          "Assalamu Alaikum. If you face any bug or error kindly inform me.",
+                          style: Theme.of(context).textTheme.labelLarge,
+                        ),
+                        const SizedBox(height: CSizes.spaceBtwInputFields - 4),
+                        Row(
+                          children: [
+                            Link(
+                              uri: Uri.parse('mailto:mdrasel.appdev@gmail.com'),
+                              builder: (context, followLink) => InkWell(
+                                onTap: followLink,
+                                child: SizedBox(
+                                  height: CSizes.iconMd - 2,
+                                  child: Image.asset(
+                                    CImages.emailLogo,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Link(
+                              uri: Uri.parse('https://www.linkedin.com/in//'),
+                              builder: (context, followLink) => InkWell(
+                                onTap: followLink,
+                                child: SizedBox(
+                                    height: CSizes.iconMd,
+                                    child: Image.asset(
+                                      CImages.linkedinLogo,
+                                      color: Colors.black,
+                                    )),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Link(
+                              uri: Uri.parse(
+                                  'https://github.com/Md-Rasel-appdev'),
+                              builder: (context, followLink) => InkWell(
+                                onTap: followLink,
+                                child: SizedBox(
+                                  height: CSizes.iconMd - 4,
+                                  child: Image.asset(
+                                    CImages.githubLogo,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Link(
+                              uri: Uri.parse('http://t.me/hafizflow45'),
+                              builder: (context, followLink) => InkWell(
+                                onTap: followLink,
+                                child: SizedBox(
+                                  height: CSizes.iconMd - 4,
+                                  child: Image.asset(
+                                    CImages.telegramLogo,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               )
             ],
           ),
