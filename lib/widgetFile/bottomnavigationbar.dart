@@ -31,6 +31,7 @@ class _NavigationState extends State<Navigation> {
         child: widgetList[countindex],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         elevation: 0,
         onTap: (index) {
           setState(() {
@@ -38,27 +39,34 @@ class _NavigationState extends State<Navigation> {
           });
         },
         currentIndex: countindex,
-        items: const [
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        items: [
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.home, color: Colors.grey, size: 18),
+            activeIcon: FaIcon(FontAwesomeIcons.home, color: Colors.black, size: 18),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.bookOpenReader,
-                color: Colors.grey, size: 18),
-            label: 'course',
+            icon: FaIcon(FontAwesomeIcons.bookOpenReader, color: Colors.grey, size: 18),
+            activeIcon: FaIcon(FontAwesomeIcons.bookOpenReader, color: Colors.black, size: 18),
+            label: 'Course',
           ),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.calculator,
-                  color: Colors.grey, size: 18),
-              label: 'Calculator'),
+            icon: FaIcon(FontAwesomeIcons.calculator, color: Colors.grey, size: 18),
+            activeIcon: FaIcon(FontAwesomeIcons.calculator, color: Colors.black, size: 18),
+            label: 'Calculator',
+          ),
           BottomNavigationBarItem(
-              icon:
-                  FaIcon(FontAwesomeIcons.robot, color: Colors.grey, size: 18),
-              label: 'Ai'),
+            icon: FaIcon(FontAwesomeIcons.robot, color: Colors.grey, size: 18),
+            activeIcon: FaIcon(FontAwesomeIcons.robot, color: Colors.black, size: 18),
+            label: 'Ai',
+          ),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.gear, color: Colors.grey, size: 18),
-              label: 'Settings')
+            icon: FaIcon(FontAwesomeIcons.gear, color: Colors.grey, size: 18),
+            activeIcon: FaIcon(FontAwesomeIcons.gear, color: Colors.black, size: 18),
+            label: 'Settings',
+          ),
         ],
       ),
     );
