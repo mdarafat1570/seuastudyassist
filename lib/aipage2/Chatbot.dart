@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:ffi';
+import 'dart:io';
 
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as htpp;
 import 'package:seustudyassist/aipage2/home_page.dart';
 import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Chatbot extends StatefulWidget {
   const Chatbot({super.key});
@@ -41,7 +44,9 @@ class _ChatbotState extends State<Chatbot> {
       ]
     };
 
-    await htpp
+
+
+      await htpp
         .post(Uri.parse(oururl), headers: header, body: jsonEncode(data))
         .then((value) {
       if (value.statusCode == 200) {
@@ -60,6 +65,17 @@ class _ChatbotState extends State<Chatbot> {
     typing.remove(bot);
     setState(() {});
   }
+  void _sendMessageMedia() async {
+    ImagePicker picker = ImagePicker();
+    XFile? file = await picker.pickImage(source: ImageSource.gallery);
+    if(file != null){
+      ChatMessage chatMessage = ChatMessage(user: myself, createdAt: DateTime.now(),text: "Discribe this picture",medias: [
+        ChatMedia(url: file.path, fileName: "", type: MediaType.image)
+      ]);
+      // _sendMessageMedia(chatMessage);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +91,7 @@ class _ChatbotState extends State<Chatbot> {
       body: Container(
         padding: EdgeInsets.only(bottom: 25.0),
         child: DashChat(
+          inputOptions: InputOptions(trailing: [IconButton(onPressed: _sendMessageMedia, icon: const Icon(Icons.image))]),
           typingUsers: typing,
           currentUser: myself,
           onSend: (ChatMessage m) {
