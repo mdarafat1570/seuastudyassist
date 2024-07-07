@@ -152,7 +152,7 @@ class _DevelopInfoPageState extends State<DevelopInfoPage> {
                               radius: 20,
                               child: CircleAvatar(
                                 backgroundImage:
-                                    AssetImage(CImages.me), //NetworkImage
+                                    AssetImage(CImages.aziz), //NetworkImage
                                 radius: 20,
                               ),
                             ),
@@ -182,7 +182,7 @@ class _DevelopInfoPageState extends State<DevelopInfoPage> {
                         Row(
                           children: [
                             Link(
-                              uri: Uri.parse('mailto:@gmail.com'),
+                              uri: Uri.parse('mailto:azizulakimfayaz@gmail.com'),
                               builder: (context, followLink) => InkWell(
                                 onTap: followLink,
                                 child: SizedBox(
