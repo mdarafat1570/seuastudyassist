@@ -45,12 +45,26 @@ android {
     }
 
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.seustudyassist.seustudyassist"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+=======
+       minSdkVersion 14 
+       targetSdkVersion 22
+
+             
+        multiDexEnabled true
+        applicationId "com.seustudyassist.seustudyassist"
+       
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+>>>>>>> 6344c8591a8ecc182781f9b81ffa1fc5147cf798
     }
 
     buildTypes {
@@ -68,7 +82,11 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+<<<<<<< HEAD
          implementation 'androidx.multidex:multidex:2.0.1'
 
+=======
+    implementation 'androidx.multidex:multidex:2.0.1'
+>>>>>>> 6344c8591a8ecc182781f9b81ffa1fc5147cf798
     
 }
