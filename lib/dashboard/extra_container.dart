@@ -13,6 +13,7 @@ import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
 import 'package:seustudyassist/importantContacts/important_info_page.dart';
 
 import 'package:seustudyassist/loginPageSEU/SEU_login_page.dart';
+import 'package:seustudyassist/preRegistration/pre_registration_page.dart';
 import 'package:seustudyassist/topNewsPage/top_news_page.dart';
 import 'package:seustudyassist/tuitionCalculator/Calculator_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -214,7 +215,7 @@ class _ExtraContainerState extends State<ExtraContainer> {
                                 'assets/Teacher_selection.png',
                                 'Subject selection',
                                 Color.fromARGB(255, 104, 47, 61),
-                                LoginPageSEU()),
+                                StudentForm()),
                           ],
                         ),
                       ],
