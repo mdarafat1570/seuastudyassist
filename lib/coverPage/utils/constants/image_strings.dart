@@ -22,4 +22,9 @@ class CImages {
   /// Me
   static const String me = "assets/arafatnew.jpg";
   static const String rafi = "assets/logos/rafi.png";
+<<<<<<< HEAD
+  static const String rasel = "assets/rasell.jpg";
+=======
+  static const String aziz = "assets/1.jpg";
+>>>>>>> 5eb4c163d292bd165b0be88e4b3c28d1040527cc
 }

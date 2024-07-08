@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+aimport 'package:flutter/material.dart';
 import 'package:seustudyassist/widgetFile/bottomnavigationbar.dart';
 
 void main() {
