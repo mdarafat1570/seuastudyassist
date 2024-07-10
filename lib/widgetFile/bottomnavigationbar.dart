@@ -41,31 +41,40 @@ class _NavigationState extends State<Navigation> {
         currentIndex: countindex,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
-        items: [
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedLabelStyle: const TextStyle(color: Colors.black),
+        unselectedLabelStyle: const TextStyle(color: Colors.black),
+        items: const [
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.home, color: Colors.grey, size: 18),
             activeIcon: FaIcon(FontAwesomeIcons.home, color: Colors.black, size: 18),
             label: "Home",
+            tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.bookOpenReader, color: Colors.grey, size: 18),
             activeIcon: FaIcon(FontAwesomeIcons.bookOpenReader, color: Colors.black, size: 18),
             label: 'Course',
+            tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.calculator, color: Colors.grey, size: 18),
             activeIcon: FaIcon(FontAwesomeIcons.calculator, color: Colors.black, size: 18),
             label: 'Calculator',
+            tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.robot, color: Colors.grey, size: 18),
             activeIcon: FaIcon(FontAwesomeIcons.robot, color: Colors.black, size: 18),
             label: 'Ai',
+            tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.gear, color: Colors.grey, size: 18),
             activeIcon: FaIcon(FontAwesomeIcons.gear, color: Colors.black, size: 18),
             label: 'Settings',
+            tooltip: '',
           ),
         ],
       ),
