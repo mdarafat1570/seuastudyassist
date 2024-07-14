@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seustudyassist/AuthService/authService.dart';
 
 class LoginPageSEU extends StatefulWidget {
   const LoginPageSEU({Key? key}) : super(key: key);
@@ -12,6 +13,27 @@ class LoginPageSEU extends StatefulWidget {
 class _LoginPageSEUState extends State<LoginPageSEU> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  final AuthService authService = AuthService();
+
+  void signIn(String username, String password) async {
+    Map<String, dynamic>? userData =
+        await authService.signIn(username, password);
+    if (userData != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Signed in successfully: ${userData['name']}'),
+          backgroundColor: Colors.green,
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to sign in'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -249,13 +271,13 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
               color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
-          // TextSpan(
-          //   text: 'PAGE',
-          //   style: TextStyle(
-          //     color: Color(0xFFFE9879),
-          //     fontWeight: FontWeight.w800,
-          //   ),
-          // ),
+          TextSpan(
+            text: 'PAGE',
+            style: TextStyle(
+              color: Color(0xFFFE9879),
+              fontWeight: FontWeight.w800,
+            ),
+          ),
         ],
       ),
     );
@@ -392,30 +414,37 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
   }
 
   Widget signInButton(Size size) {
-    return Container(
-      alignment: Alignment.center,
-      height: size.height / 13,
-      width: size.width * 0.7,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50.0),
-        color: const Color(0xFF21899C),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF4C2E84).withOpacity(0.2),
-            offset: const Offset(0, 15.0),
-            blurRadius: 60.0,
-          ),
-        ],
-      ),
-      child: Text(
-        'Sign in',
-        style: GoogleFonts.inter(
-          fontSize: 16.0,
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
-          height: 1.5,
+    return GestureDetector(
+      onTap: () {
+        String email = emailController.text.trim();
+        String password = passController.text.trim();
+        signIn(email, password);
+      },
+      child: Container(
+        alignment: Alignment.center,
+        height: size.height / 13,
+        width: size.width * 0.7,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50.0),
+          color: const Color(0xFF21899C),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF4C2E84).withOpacity(0.2),
+              offset: const Offset(0, 15.0),
+              blurRadius: 60.0,
+            ),
+          ],
         ),
-        textAlign: TextAlign.center,
+        child: Text(
+          'Sign in',
+          style: GoogleFonts.inter(
+            fontSize: 16.0,
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            height: 1.5,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
@@ -450,14 +479,17 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
             ),
           ),
           const Spacer(),
-          Text(
-            'Forgot password',
-            style: GoogleFonts.inter(
-              fontSize: 13.0,
-              color: Color.fromARGB(255, 235, 5, 5),
-              fontWeight: FontWeight.w500,
+          Visibility(
+            visible: false,
+            child: Text(
+              'Forgot password',
+              style: GoogleFonts.inter(
+                fontSize: 13.0,
+                color: Color.fromARGB(255, 235, 5, 5),
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.right,
             ),
-            textAlign: TextAlign.right,
           ),
         ],
       ),

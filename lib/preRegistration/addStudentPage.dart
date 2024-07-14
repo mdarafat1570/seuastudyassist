@@ -28,9 +28,7 @@ class _AddStudentPageState extends State<AddStudentPage> {
       );
       Navigator.pop(context, newStudent);
     }
-  }     
-
-
+  }
 
   List<String> extractFacultyNames(List<Map<String, dynamic>> courseList) {
     List<String> facultyNames = [];
@@ -57,6 +55,25 @@ class _AddStudentPageState extends State<AddStudentPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  children: [
+                    commonTextfieldWithTitle(
+                      'Title',
+                      true,
+                      1,
+                      nameController,
+                      hint: 'Enter your name',
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Name is required';
+                        }
+                        return null;
+                      },
+                      onChanged: (value) {},
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
                 commonTextfieldWithTitle(
                   'Title',
                   true,
@@ -71,7 +88,6 @@ class _AddStudentPageState extends State<AddStudentPage> {
                   },
                   onChanged: (value) {},
                 ),
-                SizedBox(height: 10),
                 commonDropdownWithTitle(
                   title: 'Code',
                   isRequired: true,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seustudyassist/CGP/cgpa_page.dart';
 import 'package:seustudyassist/CamScanner/cam_scanner_page.dart';
 import 'package:seustudyassist/MapSEU/Map_seu_page.dart';
+import 'package:seustudyassist/SEU%20routine/routine_page.dart';
 import 'package:seustudyassist/UMS/ums_web.dart';
 import 'package:seustudyassist/academicCalender/academic_calender.dart';
 import 'package:seustudyassist/aipage2/Chatbot.dart';
@@ -208,9 +209,9 @@ class _ExtraContainerState extends State<ExtraContainer> {
                                 TopNewsPage()),
                             buildCard(
                                 'assets/cafa.png',
-                                'Cafe food info',
+                                'Course Schedule',
                                 Color.fromARGB(255, 153, 171, 50),
-                                AcademicCalenderPage()),
+                                CourseSchedulePage()),
                             buildCard(
                                 'assets/Teacher_selection.png',
                                 'Subject selection',
