@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:seustudyassist/AuthService/endpoint.dart';
-
 
 class AuthService {
   Future<Map<String, dynamic>?> signIn(String username, String password) async {
@@ -36,17 +36,43 @@ class AuthService {
           body: body);
 
       if (response.statusCode == 200) {
-     
         Map<String, dynamic> data = json.decode(response.body);
-        return data['data']; 
+        String token = data['data']['token']; 
+
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('token', token);
+        
+        return data['data'];
       } else {
-     
         print('Failed to sign in: ${response.statusCode}');
         return null;
       }
     } catch (e) {
-    
       print('Exception during sign in: $e');
+      return null;
+    }
+  }
+
+  Future<Map<String, dynamic>?> fetchDashboardData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('token');
+    
+    if (token == null) {
+      print('No token found');
+      return null;
+    }
+
+    final response = await http.get(
+      Uri.parse(Endpoints.dashboard), 
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      print('Failed to fetch dashboard data: ${response.statusCode}');
       return null;
     }
   }

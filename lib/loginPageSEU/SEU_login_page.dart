@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seustudyassist/AuthService/authService.dart';
+import 'package:seustudyassist/dashboard/new_dashboard_page.dart';
 
 class LoginPageSEU extends StatefulWidget {
   const LoginPageSEU({Key? key}) : super(key: key);
@@ -19,18 +20,13 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
     Map<String, dynamic>? userData =
         await authService.signIn(username, password);
     if (userData != null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Signed in successfully: ${userData['name']}'),
-          backgroundColor: Colors.green,
-        ),
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) =>  DashboardPage()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Failed to sign in'),
-          backgroundColor: Colors.red,
-        ),
+        SnackBar(content: Text('Sign in failed')),
       );
     }
   }
@@ -104,7 +100,6 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          //logo & text
           logo(size.height / 8, size.height / 8),
           SizedBox(
             height: size.height * 0.03,
@@ -114,7 +109,6 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
             height: size.height * 0.05,
           ),
 
-          //email & password textField
           emailTextField(size),
           SizedBox(
             height: size.height * 0.02,
@@ -124,7 +118,6 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
             height: size.height * 0.03,
           ),
 
-          //remember & forget text
           buildRememberForgetSection(),
           SizedBox(
             height: size.height * 0.04,
@@ -265,19 +258,19 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
         ),
         children: const [
           TextSpan(
-            text: 'Sign in ',
+            text: 'Sign in',
             style: TextStyle(
               fontWeight: FontWeight.w800,
               color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
-          TextSpan(
-            text: 'PAGE',
-            style: TextStyle(
-              color: Color(0xFFFE9879),
-              fontWeight: FontWeight.w800,
-            ),
-          ),
+          // TextSpan(
+          //   text: 'PAGE',
+          //   style: TextStyle(
+          //     color: Color(0xFFFE9879),
+          //     fontWeight: FontWeight.w800,
+          //   ),
+          // ),
         ],
       ),
     );
@@ -298,7 +291,7 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
           keyboardType: TextInputType.emailAddress,
           cursorColor: const Color(0xFF151624),
           decoration: InputDecoration(
-            hintText: 'Enter your Student email',
+            hintText: 'Enter your Student Code',
             hintStyle: GoogleFonts.inter(
               fontSize: 16.0,
               color: const Color(0xFF151624).withOpacity(0.5),
