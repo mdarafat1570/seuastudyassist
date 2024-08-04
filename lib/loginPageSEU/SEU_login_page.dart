@@ -15,14 +15,21 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   final AuthService authService = AuthService();
+  bool isLoading = false;
 
   void signIn(String username, String password) async {
+    setState(() {
+      isLoading = true;
+    });
     Map<String, dynamic>? userData =
         await authService.signIn(username, password);
+    setState(() {
+      isLoading = false;
+    });
     if (userData != null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) =>  DashboardPage()),
+        MaterialPageRoute(builder: (context) => DashboardPage()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -108,6 +115,7 @@ class _LoginPageSEUState extends State<LoginPageSEU> {
           SizedBox(
             height: size.height * 0.05,
           ),
+          // if (isLoading) Image.asset('assets/AnimationLodding.gif'),
 
           emailTextField(size),
           SizedBox(

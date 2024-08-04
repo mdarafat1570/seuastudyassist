@@ -9,9 +9,12 @@ import 'package:seustudyassist/commonWidget/TextUtil.dart';
 import 'package:seustudyassist/commonWidget/course_widget.dart';
 import 'package:seustudyassist/commonWidget/custom_Text.dart';
 import 'package:seustudyassist/courseOnList/course_page.dart';
+import 'package:seustudyassist/courseOnList/course_row_item.dart';
+import 'package:seustudyassist/courseOnList/detail_page.dart';
 import 'package:seustudyassist/coverPage/features/personalization/controllers/form/date_controller.dart';
 import 'package:seustudyassist/coverPage/features/personalization/controllers/form/form_controller.dart';
 import 'package:seustudyassist/facultiies_Seu/faculties_page.dart';
+import 'package:seustudyassist/model/course_list.dart';
 import 'package:seustudyassist/model/faculties_list.dart';
 import 'package:seustudyassist/topNewsPage/top_news_page.dart';
 
@@ -19,18 +22,18 @@ import '../widgetFile/common_slidar.dart';
 import './extra_container.dart';
 
 List<String> semesterList = [
-  "First Semester",
-  "Second Semester",
-  "Third Semester",
-  "Fourth Semester",
-  "Fifth Semester",
-  "Sixth Semester",
-  "Seventh Semester",
-  "Eighth Semester",
-  "Ninth Semester",
-  "Tenth Semester",
-  "Eleventh Semester",
-  "Twelfth Semester"
+  "1st Semester",
+  "2nd Semester",
+  "3rd Semester",
+  "4th Semester",
+  "5th Semester",
+  "6th Semester",
+  "7th Semester",
+  "8th Semester",
+  "9th Semester",
+  "10th Semester",
+  "11th Semester",
+  "12th Semester"
 ];
 
 List<String> images = [
@@ -60,12 +63,14 @@ class _HomePageState extends State<HomePage> {
   int currentPage = 0;
   late DateController dateController;
   late FormController form;
+  List<Map<String, dynamic>> _filteredCourseList = [];
 
   @override
   void initState() {
     super.initState();
     _startAutoScroll();
     _setGreeting();
+    _filteredCourseList = getFilteredCourses();
     _scrollController = ScrollController();
     dateController = Get.put(DateController());
     form = Get.put(FormController());
@@ -122,6 +127,19 @@ class _HomePageState extends State<HomePage> {
     _scrollController.dispose();
     // _pageController.dispose();
     super.dispose();
+  }
+
+  List<Map<String, dynamic>> getFilteredCourses() {
+    String selectedSemester = semesterList[selectedIndex];
+    List<Map<String, dynamic>> filteredCourses = courseList()
+        .where((course) => course['Semester'] == selectedSemester)
+        .toList();
+
+    // Debug print statements
+    print('Selected Semester: $selectedSemester');
+    print('Filtered Courses: $filteredCourses');
+
+    return filteredCourses;
   }
 
   void slideNavigationPush2(Widget screen, BuildContext context) {
@@ -405,13 +423,13 @@ class _HomePageState extends State<HomePage> {
                       height: 35,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
                         itemCount: semesterList.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
                               setState(() {
                                 selectedIndex = index;
+                                _filteredCourseList = getFilteredCourses();
                               });
                             },
                             child: Container(
@@ -419,25 +437,59 @@ class _HomePageState extends State<HomePage> {
                                   const EdgeInsets.symmetric(horizontal: 20),
                               margin: const EdgeInsets.only(right: 20),
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.white54),
-                                  borderRadius: BorderRadius.circular(120),
-                                  color: selectedIndex == index
-                                      ? AppColor.primaryColor
-                                      : AppColor.accentColor),
-                              alignment: Alignment.center,
-                              child: TextUtil(
-                                text: semesterList[index],
-                                weight: true,
+                                border: Border.all(color: Colors.white54),
+                                borderRadius: BorderRadius.circular(120),
                                 color: selectedIndex == index
-                                    ? Colors.white
-                                    : const Color.fromARGB(255, 0, 0, 0),
+                                    ? AppColor.primaryColor
+                                    : AppColor.accentColor,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                semesterList[index],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: selectedIndex == index
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
                               ),
                             ),
                           );
                         },
                       ),
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(1, 2, 3, 4),
+                    child: Expanded(
+                      child: SizedBox(
+                        // Constrain the height of the ListView to prevent layout issues
+                        height: MediaQuery.of(context).size.height *
+                            0.5, // Adjust the height as needed
+                        child: ListView.builder(
+                          itemCount: _filteredCourseList.length,
+                          itemBuilder: (context, index) {
+                            final course = _filteredCourseList[index];
+                            return courserow(
+                              course['courseCode'],
+                              course['courseTitle'],
+                              course['credits'],
+                              course['courseType'],
+                              course['CoursePrototype'],
+                              course['Semester'],
+                              onDetailsClick: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailsPage()),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],

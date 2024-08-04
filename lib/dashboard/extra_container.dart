@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seustudyassist/CGP/cgpa_page.dart';
+import 'package:seustudyassist/CGPA/cgpa_page.dart';
 import 'package:seustudyassist/CamScanner/cam_scanner_page.dart';
 import 'package:seustudyassist/MapSEU/Map_seu_page.dart';
 import 'package:seustudyassist/SEU%20routine/routine_page.dart';

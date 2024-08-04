@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:seustudyassist/CGP/cgpa_page.dart';
+import 'package:seustudyassist/CGPA/cgpa_page.dart';
 import 'package:seustudyassist/commonWidget/slideNavigation.dart';
 
 import 'package:seustudyassist/loginPageSEU/SEU_login_page.dart';
